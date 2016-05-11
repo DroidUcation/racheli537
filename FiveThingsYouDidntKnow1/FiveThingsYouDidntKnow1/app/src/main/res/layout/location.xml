@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:paddingTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Kramer On The World"
+        android:id="@+id/textView3"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.00"
+        android:textSize="40dp"/>
+
+    <TextView
+        android:layout_marginTop="60dp"
+        android:layout_width="242dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text=" A personal connection with our customers is crucial to our success. We have offices all over the world able to serve the local market, with local support and expertise. Today, there are over one million Kramer Electronics products in use worldwide. Every two minutes, a Kramer product is sold somewhere around the world. Every product carries our personal guarantee and service commitment. Our team stands behind every product we sell – even years after it is installed. We now offer a seven-year warranty on all Kramer products, covering parts and labor."
+        android:id="@+id/textView4"
+        android:layout_gravity="center_horizontal"
+        android:textSize="15dp"
+        />
+
+</LinearLayout>

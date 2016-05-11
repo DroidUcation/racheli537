@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:paddingTop="70dp"
+        android:layout_width="324dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Kramer Products"
+        android:id="@+id/textView3"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.00"
+        android:textSize="40dp"/>
+
+    <TextView
+        android:layout_marginTop="30dp"
+        android:layout_width="242dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text=" Today, we have a line of over 1,000 products. Every one of them was developed through extensive R D and customer feedback. This is what keeps Kramer Electronics ahead. Listening to, and acting on, customer feedback sets our products apart from others. We have built our reputation on this."
+        android:id="@+id/textView4"
+        android:layout_gravity="center_horizontal"
+        android:textSize="20dp"
+        />
+</LinearLayout>

@@ -5,24 +5,12 @@
     android:weightSum="1">
 
     <TextView
-        android:paddingTop="70px"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Kramer Events"
-        android:id="@+id/textView3"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="0.05"
-        android:textSize="40dp"/>
+        style="@style/title_content"
+        android:id="@+id/tv_eventsTitle"/>
 
     <TextView
-        android:layout_marginTop="60dp"
-        android:layout_width="242dp"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Come meet us in one of the many trade shows we’re presenting in around the US and worldwide."
-        android:id="@+id/textView4"
-        android:layout_gravity="center_horizontal"
-        android:textSize="20dp"
+        style="@style/content_content"
+        android:id="@+id/tv_eventsContent"
+
         />
 </LinearLayout>

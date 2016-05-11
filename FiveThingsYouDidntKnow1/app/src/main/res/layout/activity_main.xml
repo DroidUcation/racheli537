@@ -11,14 +11,14 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
 
-    android:background="#e3d2d7"
+    android:background="@color/colorMainBG"
     tools:context="com.example.android.fivethingsyoudidntknow.MainActivity">
 
     <TextView
-        android:paddingTop="10dp"
+        android:paddingTop="@dimen/top_first_act"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ABOUT KRAMER ELECTRONICS LTD!"
+        android:text="@string/header"
         android:textSize="20dp"
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
@@ -28,66 +28,40 @@
         android:textColor="#040404" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Kramer Solutions"
+        style="@style/custom_button"
+
         android:id="@+id/solutions"
         android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="61dp"
         android:onClick="openSolution"
-        android:background="@drawable/ic_action_name"
-        android:textColorHighlight="#140909"
-        android:textSize="20dp"
-        android:textStyle="bold|italic" />
+         />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Kramer Products"
+        style="@style/custom_button"
+
         android:id="@+id/products"
         android:layout_below="@+id/solutions"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="42dp"
-        android:onClick="openProduct"
-        android:background="@drawable/ic_action_name"
-        android:textStyle="bold|italic" />
+        android:onClick="openProduct" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Kramer Events"
+       style="@style/custom_button"
+
         android:id="@+id/events"
         android:layout_below="@+id/products"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:onClick="openEvents"
-        android:background="@drawable/ic_action_name"
-        android:textStyle="bold|italic" />
+        android:onClick="openEvents"/>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Kramer On The World"
+        style="@style/custom_button"
+
         android:id="@+id/locations"
         android:layout_below="@+id/events"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:onClick="openLocation"
-        android:background="@drawable/ic_action_name"
-        android:textStyle="bold|italic" />
+        android:onClick="openLocation"/>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Kramer Literature"
+        style="@style/custom_button"
+
         android:layout_below="@+id/locations"
         android:id="@+id/literature"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:onClick="openLiterature"
-        android:background="@drawable/ic_action_name"
-        android:textStyle="bold|italic" />
+        android:onClick="openLiterature"/>
 
 </RelativeLayout>
 </ScrollView>

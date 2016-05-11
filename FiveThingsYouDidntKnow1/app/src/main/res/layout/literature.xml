@@ -3,24 +3,12 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
-        android:paddingTop="70dp"
-        android:layout_width="324dp"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Kramer Literature"
-        android:id="@+id/textView3"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="0.00"
-        android:textSize="40dp"/>
+        style="@style/title_content"
+        android:id="@+id/tv_literTitle"
+       />
 
     <TextView
-        android:layout_marginTop="60dp"
-        android:layout_width="242dp"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text=" Uploading brochures with open spread, that do not make sense to someone who sees it the first time, is not the right way to distribute our literature."
-        android:id="@+id/textView4"
-        android:layout_gravity="center_horizontal"
-        android:textSize="20dp"
+        android:id="@+id/tv_literContent"
+        style="@style/content_content"
         />
 </LinearLayout>

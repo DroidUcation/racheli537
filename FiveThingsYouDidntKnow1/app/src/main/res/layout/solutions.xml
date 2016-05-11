@@ -2,26 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:scrollbars="vertical">
 
     <TextView
-        android:paddingTop="70dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Kramer Online Training"
-        android:id="@+id/textView3"
-        android:layout_gravity="center_horizontal"
-        android:textSize="35dp"/>
+        style="@style/title_content"
+        android:id="@+id/tv_solTitle"/>
 
     <TextView
-        android:layout_marginTop="40dp"
-        android:layout_width="242dp"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text=" Kramer Academy also offers Web based training. Whether it is just not possible to get everyone together, or if online training is an important part of your educational programs, Kramer can provide you the online Web based training you need. Any of our long-form programs can be condensed into a webinar or series of webinars."
-        android:id="@+id/textView4"
-        android:layout_gravity="center_horizontal"
-        android:textSize="20dp"
+        style="@style/content_content"
+        android:id="@+id/tv_solContent"
         />
 </LinearLayout>
