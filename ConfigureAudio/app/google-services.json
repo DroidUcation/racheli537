@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "284070394047",
+    "firebase_url": "https://configure-audio.firebaseio.com",
+    "project_id": "configure-audio",
+    "storage_bucket": "configure-audio.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:284070394047:android:8a7a9b7cb72b02dd",
+        "android_client_info": {
+          "package_name": "com.audio.kramer.configureaudio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "284070394047-9vkp7o943qj5he54g7b1opnn1rbqq3b2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.audio.kramer.configureaudio",
+            "certificate_hash": "87E327F0064053FD18B38B5ABA9B74342D78C462"
+          }
+        },
+        {
+          "client_id": "284070394047-kpoe452e5ef60k39qr42o6m55gg62d8f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCE8cQZMBpeG5SDU79IU5j4rbPO6KkO3xw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "284070394047-kpoe452e5ef60k39qr42o6m55gg62d8f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

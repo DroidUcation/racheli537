@@ -1,0 +1,49 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="layout.RoomPurposeFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/purpose_ttl" />
+
+        <LinearLayout android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+            <Button android:layout_height="@dimen/rect"
+                android:layout_width="@dimen/rect"
+                android:id="@+id/pur_5"
+                android:text="@string/pur_1"
+                android:onClick="gotoNextFragment"
+                />
+            <Button android:layout_height="@dimen/rect"
+                android:layout_width="@dimen/rect"
+                android:text="@string/pur_2"
+                android:id="@+id/pur_10"
+                android:onClick="gotoNextFragment"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            >
+            <Button android:layout_height="@dimen/rect"
+                android:layout_width="@dimen/rect"
+                android:text="@string/pur_3"
+                android:id="@+id/pur_15"
+                android:onClick="gotoNextFragment"/>
+            <Button android:layout_height="@dimen/rect"
+                android:layout_width="@dimen/rect"
+                android:text="@string/pur_4"
+                android:id="@+id/pur_20"
+                android:onClick="gotoNextFragment"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

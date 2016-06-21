@@ -3,23 +3,26 @@ package layout;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import com.audio.kramer.configureaudio.R;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link StartFragment.OnFragmentInteractionListener} interface
+ * {@link RoomSizeFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link StartFragment#newInstance} factory method to
+ * Use the {@link RoomSizeFragment#newInstance} factory method to
  * create an instance of this fragment.
+ *
  */
-public class StartFragment extends Fragment implements NoiseFloorFragment.OnFragmentInteractionListener{
+public class RoomSizeFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -31,28 +34,26 @@ public class StartFragment extends Fragment implements NoiseFloorFragment.OnFrag
 
     private OnFragmentInteractionListener mListener;
 
-    public StartFragment() {
-        // Required empty public constructor
-    }
-
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment StartFragment.
+     * @return A new instance of fragment RoomSizeFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static StartFragment newInstance(String param1, String param2) {
-        StartFragment fragment = new StartFragment();
+    public static RoomSizeFragment newInstance(String param1, String param2) {
+        RoomSizeFragment fragment = new RoomSizeFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
-
+    public RoomSizeFragment() {
+        // Required empty public constructor
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,23 +62,30 @@ public class StartFragment extends Fragment implements NoiseFloorFragment.OnFrag
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-    }
-
-    public void gotoNoiseFloor(View view)
-    {
-        Fragment fragment = new NoiseFloorFragment();
-        // Insert the fragment by replacing any existing fragment
-        FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.fragment_placeholder, fragment)
-                .commit();
+        Spinner dropdown = (Spinner) getActivity().findViewById(R.id.spinner_height);
+        String[] items = new String[]{"1", "2", "three"};
+       // ArrayAdapter <CharSequence>adapter = ArrayAdapter.createFromResource( getActivity(), R.array.sections , android.R.layout.simple_spinner_item);
+        //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //dropdown.setAdapter(adapter);
 
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_start, container, false);
+
+        return inflater.inflate(R.layout.fragment_room_size, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Spinner spinner = (Spinner) view.findViewById(R.id.spinner_length);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                getContext(), R.array.spinner_values, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -104,17 +112,12 @@ public class StartFragment extends Fragment implements NoiseFloorFragment.OnFrag
         mListener = null;
     }
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
-    }
-
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
-     * <p/>
+     * <p>
      * See the Android Training lesson <a href=
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.

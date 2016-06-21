@@ -1,0 +1,54 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="layout.NoiseFloorFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/noise_floor_ttl" />
+
+    <LinearLayout android:layout_height="wrap_content"
+        android:layout_width="wrap_content">
+        <Button android:layout_height="@dimen/rect"
+            android:layout_width="@dimen/rect"
+            android:id="@+id/noise_db45"
+            android:text="@string/noise_1"
+            android:onClick="gotoNextFragment"
+            />
+        <Button android:layout_height="@dimen/rect"
+            android:layout_width="@dimen/rect"
+            android:text="@string/noise_2"
+            android:id="@+id/noise_db55"
+            android:onClick="gotoNextFragment"/>
+    </LinearLayout>
+
+    <LinearLayout android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        >
+        <Button android:layout_height="@dimen/rect"
+            android:layout_width="@dimen/rect"
+            android:text="@string/noise_3"
+            android:id="@+id/noise_db60"
+            android:onClick="gotoNextFragment"/>
+        <Button android:layout_height="@dimen/rect"
+            android:layout_width="@dimen/rect"
+            android:text="@string/noise_4"
+            android:id="@+id/noise_db65"
+            android:onClick="gotoNextFragment"/>
+    </LinearLayout>
+    <LinearLayout android:layout_height="wrap_content"
+        android:layout_width="wrap_content">
+        <Button android:layout_height="@dimen/rect"
+            android:layout_width="@dimen/rect"
+            android:text="@string/noise_5"
+            android:id="@+id/noise_db75"
+            android:onClick="gotoNextFragment"/>
+    </LinearLayout>
+</LinearLayout>
+</FrameLayout>
