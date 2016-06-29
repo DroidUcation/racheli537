@@ -9,14 +9,15 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import layout.InstallationFragment;
 import layout.NoiseFloorFragment;
 import layout.RoomPurposeFragment;
 import layout.RoomSizeFragment;
 import layout.StartFragment;
 
-public class MainActivity extends AppCompatActivity implements StartFragment.OnFragmentInteractionListener,
-        NoiseFloorFragment.OnFragmentInteractionListener , RoomPurposeFragment.OnFragmentInteractionListener,
-        RoomSizeFragment.OnFragmentInteractionListener{
+public class MainActivity extends AppCompatActivity implements StartFragment.OnFragmentInteractionListener ,
+        NoiseFloorFragment.OnFragmentInteractionListener , RoomPurposeFragment.OnFragmentInteractionListener ,
+        RoomSizeFragment.OnFragmentInteractionListener , InstallationFragment.OnFragmentInteractionListener{
 
     private String PROVIDER_NAME = "entity.AudioContentProvider";
     private String URL = "content://" + PROVIDER_NAME +"/TBL_AMP";

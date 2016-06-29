@@ -1,0 +1,50 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="layout.InstallationFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/installation_ttl" />
+
+        <LinearLayout android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+            <Button android:layout_height="@dimen/rect"
+                android:layout_width="@dimen/rect"
+                android:id="@+id/ins_1"
+                android:text="@string/install_1"
+                android:onClick="gotoNextFragment"
+                />
+            <Button android:layout_height="@dimen/rect"
+                android:layout_width="@dimen/rect"
+                android:text="@string/install_2"
+                android:id="@+id/ins_2"
+                android:onClick="gotoNextFragment"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            >
+            <Button android:layout_height="@dimen/rect"
+                android:layout_width="@dimen/rect"
+                android:text="@string/install_3"
+                android:id="@+id/ins_3"
+                android:onClick="gotoNextFragment"/>
+            <Button android:layout_height="@dimen/rect"
+                android:layout_width="@dimen/rect"
+                android:text="@string/install_4"
+                android:id="@+id/ins_4"
+                android:onClick="gotoNextFragment"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</FrameLayout>
