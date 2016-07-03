@@ -2,53 +2,124 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_weight="1"
     tools:context="layout.NoiseFloorFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <LinearLayout android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:orientation="vertical">
-    <TextView
+    <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/noise_floor_ttl" />
+        android:layout_centerInParent="true"
+        android:columnCount="2"
+        android:rowCount="3" >
 
-    <LinearLayout android:layout_height="wrap_content"
-        android:layout_width="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/noise_floor_ttl"
+            android:layout_row="0"
+            android:layout_columnSpan="2"
+            style="@style/TitleFont"/>
+
         <Button android:layout_height="@dimen/rect"
             android:layout_width="@dimen/rect"
             android:id="@+id/noise_db45"
             android:text="@string/noise_1"
             android:onClick="gotoNextFragment"
+            android:layout_rowSpan="1"
+            android:background="@drawable/installation1"
+            android:gravity="bottom"
             />
+
         <Button android:layout_height="@dimen/rect"
             android:layout_width="@dimen/rect"
             android:text="@string/noise_2"
             android:id="@+id/noise_db55"
-            android:onClick="gotoNextFragment"/>
-    </LinearLayout>
+            android:onClick="gotoNextFragment"
+            android:background="@drawable/installation1"
+            android:gravity="bottom"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            />
 
-    <LinearLayout android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        >
         <Button android:layout_height="@dimen/rect"
             android:layout_width="@dimen/rect"
             android:text="@string/noise_3"
             android:id="@+id/noise_db60"
-            android:onClick="gotoNextFragment"/>
+            android:onClick="gotoNextFragment"
+            android:layout_rowSpan="2"
+            android:background="@drawable/installation1"
+            android:gravity="bottom"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+        />
+
         <Button android:layout_height="@dimen/rect"
             android:layout_width="@dimen/rect"
             android:text="@string/noise_4"
             android:id="@+id/noise_db65"
-            android:onClick="gotoNextFragment"/>
-    </LinearLayout>
-    <LinearLayout android:layout_height="wrap_content"
-        android:layout_width="wrap_content">
+            android:onClick="gotoNextFragment"
+            android:background="@drawable/installation1"
+            android:gravity="bottom"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+           />
+
         <Button android:layout_height="@dimen/rect"
             android:layout_width="@dimen/rect"
             android:text="@string/noise_5"
             android:id="@+id/noise_db75"
-            android:onClick="gotoNextFragment"/>
-    </LinearLayout>
-</LinearLayout>
+            android:onClick="gotoNextFragment"
+            android:layout_columnSpan="2"
+            android:background="@drawable/installation1"
+            android:gravity="bottom"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginLeft="80dp"
+            />
+</GridLayout>
+
+<!-- TODO: Update blank fragment layout -->
+    <!--<LinearLayout android:layout_height="match_parent"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:orientation="vertical">-->
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="@string/noise_floor_ttl" />-->
+
+    <!--<LinearLayout android:layout_height="wrap_content"-->
+        <!--android:layout_width="wrap_content">-->
+        <!--<Button android:layout_height="@dimen/rect"-->
+            <!--android:layout_width="@dimen/rect"-->
+            <!--android:id="@+id/noise_db45"-->
+            <!--android:text="@string/noise_1"-->
+            <!--android:onClick="gotoNextFragment"-->
+            <!--/>-->
+        <!--<Button android:layout_height="@dimen/rect"-->
+            <!--android:layout_width="@dimen/rect"-->
+            <!--android:text="@string/noise_2"-->
+            <!--android:id="@+id/noise_db55"-->
+            <!--android:onClick="gotoNextFragment"/>-->
+    <!--</LinearLayout>-->
+
+    <!--<LinearLayout android:layout_height="wrap_content"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--&gt;-->
+        <!--<Button android:layout_height="@dimen/rect"-->
+            <!--android:layout_width="@dimen/rect"-->
+            <!--android:text="@string/noise_3"-->
+            <!--android:id="@+id/noise_db60"-->
+            <!--android:onClick="gotoNextFragment"/>-->
+        <!--<Button android:layout_height="@dimen/rect"-->
+            <!--android:layout_width="@dimen/rect"-->
+            <!--android:text="@string/noise_4"-->
+            <!--android:id="@+id/noise_db65"-->
+            <!--android:onClick="gotoNextFragment"/>-->
+    <!--</LinearLayout>-->
+    <!--<LinearLayout android:layout_height="wrap_content"-->
+        <!--android:layout_width="wrap_content">-->
+        <!--<Button android:layout_height="@dimen/rect"-->
+            <!--android:layout_width="@dimen/rect"-->
+            <!--android:text="@string/noise_5"-->
+            <!--android:id="@+id/noise_db75"-->
+            <!--android:onClick="gotoNextFragment"/>-->
+    <!--</LinearLayout>-->
+<!--</LinearLayout>-->
 </FrameLayout>

@@ -4,4 +4,10 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="topBottomBar">#fe423f</color>
+
+    <color name="indicator_1">#DBA4AD</color>
+    <color name="indicator_2">#826166</color>
+    <color name="indicator_3">#59424B</color>
+    <color name="indicator_4">#161314</color>
+
 </resources>

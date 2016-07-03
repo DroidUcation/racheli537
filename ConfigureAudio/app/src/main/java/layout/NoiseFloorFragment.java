@@ -7,17 +7,34 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.audio.kramer.configureaudio.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link NoiseFloorFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link NoiseFloorFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+//public class NoiseFloorFragment extends Fragment {
+//
+//    @Override
+//    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+//        View v = inflater.inflate(R.layout.fragment_noise_floor, container, false);
+//
+//        //TextView tv = (TextView) v.findViewById(R.id.tvFragFirst);
+//        //tv.setText(getArguments().getString("msg"));
+//
+//        return v;
+//    }
+//
+//    public static NoiseFloorFragment newInstance(String text) {
+//
+//        NoiseFloorFragment f = new NoiseFloorFragment();
+//        Bundle b = new Bundle();
+//        b.putString("msg", text);
+//
+//        f.setArguments(b);
+//
+//        return f;
+//    }
+//}
+
 public class NoiseFloorFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -75,16 +92,16 @@ public class NoiseFloorFragment extends Fragment {
         }
     }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
+//    @Override
+//    public void onAttach(Context context) {
+//        super.onAttach(context);
+//        if (context instanceof OnFragmentInteractionListener) {
+//            mListener = (OnFragmentInteractionListener) context;
+//        } else {
+//            throw new RuntimeException(context.toString()
+//                    + " must implement OnFragmentInteractionListener");
+//        }
+//    }
 
     @Override
     public void onDetach() {

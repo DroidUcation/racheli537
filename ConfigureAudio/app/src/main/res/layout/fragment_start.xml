@@ -2,34 +2,68 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="layout.StartFragment">
+    tools:context="layout.StartFragment"
+    >
+    <!--android:background="@mipmap/ic_bg_start"-->
 
     <!-- TODO: Update blank fragment layout -->
-    <ImageView
-        android:id="@+id/bg_start_icon"
+    <!--<ImageView-->
+    <!--android:id="@+id/bg_start_icon"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:src="@mipmap/ic_bg_start"-->
+    <!--/>-->
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/ic_bg_start" />
+        android:layout_gravity="center"
+        >
 
-    <TextView
-        android:id="@+id/myImageViewText"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignLeft="@+id/bg_start_icon"
-        android:layout_alignTop="@+id/bg_start_icon"
-        android:layout_alignRight="@+id/bg_start_icon"
-        android:layout_alignBottom="@+id/bg_start_icon"
-        android:layout_margin="1dp"
-        android:gravity="center"
-        android:text="@string/welcome_fragment"
-        android:textColor="#000000" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/a12334567" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background = "@drawable/roundedbutton"
+            android:text="Start"
+            android:textColor="@android:color/white"
+            android:onClick="gotoNextFragment"
+            android:id="@+id/start_btn"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="99dp" />
 
-    <Button
-        android:layout_marginTop="70dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Start"
-        android:onClick="gotoNextFragment"
-        android:id="@+id/start_btn"
-        android:layout_gravity="center" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:text="@string/Start_fragment"
+            android:textColor="@android:color/white"
+            android:layout_alignLeft="@+id/textView2"
+            android:layout_alignStart="@+id/textView2"
+            android:layout_alignRight="@+id/textView2"
+            android:layout_alignEnd="@+id/textView2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/welcome_fragment"
+            android:id="@+id/textView2"
+            android:layout_marginBottom="55dp"
+            style="@style/WellFont"
+            android:gravity="center"
+            android:layout_above="@+id/textView"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
 </FrameLayout>
+
+

@@ -3,10 +3,12 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="welcome_fragment">Welcome to Kramers Audio Configurator.</string>
+    <string name="welcome_fragment">Welcome to\n Kramers Audio Configurator.</string>
+    <string name="Start_fragment">A simple way to find how many speakers you need and where to install them.</string>
     <string name="noise_floor_ttl">What level of background noise is expected in the room?</string>
     <string name="room_size_ttl">Indicate the approximate room size.</string>
     <string name="purpose_ttl">What is the room used for?</string>
+    <string name="installation_ttl">How will the speakers be installed?</string>
     <string name="noise_1">Boardroom / Residential</string>
     <string name="noise_2">Open Space / Class Room</string>
     <string name="noise_3">Houses of Worship / Auditorium</string>
@@ -19,6 +21,10 @@
     <string name="height">Height</string>
     <string name="width">Width</string>
     <string name="length">Length</string>
+    <string name="install_1">Ceiling</string>
+    <string name="install_2">Tile Ceiling</string>
+    <string name="install_3">On-Wall</string>
+    <string name="install_4">In-Wall</string>
 
     <string-array name="spinner_values">
         <item>1</item>
@@ -32,3 +38,4 @@
     </string-array>
 
 </resources>
+

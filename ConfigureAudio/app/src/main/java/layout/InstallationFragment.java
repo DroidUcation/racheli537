@@ -10,43 +10,15 @@ import android.view.ViewGroup;
 
 import com.audio.kramer.configureaudio.R;
 
-//public class RoomPurposeFragment extends Fragment {
-//
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-//        View v = inflater.inflate(R.layout.fragment_noise_floor, container, false);
-//
-//        //TextView tv = (TextView) v.findViewById(R.id.tvFragFirst);
-//        //tv.setText(getArguments().getString("msg"));
-//
-//        return v;
-//    }
-//
-//    public static RoomPurposeFragment newInstance(String text) {
-//
-//        RoomPurposeFragment f = new RoomPurposeFragment();
-//        Bundle b = new Bundle();
-//        b.putString("msg", text);
-//
-//        f.setArguments(b);
-//
-//        return f;
-//    }
-//
-//    public interface OnFragmentInteractionListener {
-//        // TODO: Update argument type and name
-//        void onFragmentInteraction(Uri uri);
-//    }
-//}
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link RoomPurposeFragment.OnFragmentInteractionListener} interface
+ * {@link InstallationFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link RoomPurposeFragment#newInstance} factory method to
+ * Use the {@link InstallationFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class RoomPurposeFragment extends Fragment {
+public class InstallationFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -58,7 +30,7 @@ public class RoomPurposeFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public RoomPurposeFragment() {
+    public InstallationFragment() {
         // Required empty public constructor
     }
 
@@ -68,11 +40,11 @@ public class RoomPurposeFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment RoomPurposeFragment.
+     * @return A new instance of fragment InstallationFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static RoomPurposeFragment newInstance(String param1, String param2) {
-        RoomPurposeFragment fragment = new RoomPurposeFragment();
+    public static InstallationFragment newInstance(String param1, String param2) {
+        InstallationFragment fragment = new InstallationFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -93,7 +65,7 @@ public class RoomPurposeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_room_purpose, container, false);
+        return inflater.inflate(R.layout.fragment_installation, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -113,7 +85,7 @@ public class RoomPurposeFragment extends Fragment {
 //                    + " must implement OnFragmentInteractionListener");
 //        }
 //    }
-//
+
     @Override
     public void onDetach() {
         super.onDetach();

@@ -4,46 +4,104 @@
     android:layout_height="match_parent"
     tools:context="layout.RoomPurposeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <!-- TODO: Update blank fragment layout -->
-    <LinearLayout android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:orientation="vertical">
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:columnCount="2"
+        android:rowCount="3" >
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/purpose_ttl" />
+            android:text="@string/purpose_ttl"
+            android:layout_row="0"
+            android:layout_columnSpan="2"
+            style="@style/TitleFont"/>
 
-        <LinearLayout android:layout_height="wrap_content"
-            android:layout_width="wrap_content">
-            <Button android:layout_height="@dimen/rect"
-                android:layout_width="@dimen/rect"
-                android:id="@+id/pur_5"
-                android:text="@string/pur_1"
-                android:onClick="gotoNextFragment"
-                />
-            <Button android:layout_height="@dimen/rect"
-                android:layout_width="@dimen/rect"
-                android:text="@string/pur_2"
-                android:id="@+id/pur_10"
-                android:onClick="gotoNextFragment"/>
-        </LinearLayout>
+        <Button android:layout_height="@dimen/rect"
+            android:layout_width="@dimen/rect"
+            android:id="@+id/pur_5"
+            android:text="@string/pur_1"
+            android:onClick="gotoNextFragment"
+            android:layout_rowSpan="1"
+            android:background="@drawable/installation1"
+            android:gravity="bottom"
+            />
 
-        <LinearLayout android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            >
-            <Button android:layout_height="@dimen/rect"
-                android:layout_width="@dimen/rect"
-                android:text="@string/pur_3"
-                android:id="@+id/pur_15"
-                android:onClick="gotoNextFragment"/>
-            <Button android:layout_height="@dimen/rect"
-                android:layout_width="@dimen/rect"
-                android:text="@string/pur_4"
-                android:id="@+id/pur_20"
-                android:onClick="gotoNextFragment"/>
-        </LinearLayout>
+        <Button android:layout_height="@dimen/rect"
+            android:layout_width="@dimen/rect"
+            android:text="@string/pur_2"
+            android:id="@+id/pur_10"
+            android:onClick="gotoNextFragment"
+            android:background="@drawable/installation1"
+            android:gravity="bottom"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            />
 
-    </LinearLayout>
+        <Button android:layout_height="@dimen/rect"
+            android:layout_width="@dimen/rect"
+            android:text="@string/pur_3"
+            android:id="@+id/pur_15"
+            android:onClick="gotoNextFragment"
+            android:layout_rowSpan="2"
+            android:background="@drawable/installation1"
+            android:gravity="bottom"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            />
+
+        <Button android:layout_height="@dimen/rect"
+            android:layout_width="@dimen/rect"
+            android:text="@string/pur_4"
+            android:id="@+id/pur_20"
+            android:onClick="gotoNextFragment"
+            android:background="@drawable/installation1"
+            android:gravity="bottom"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            />
+
+    </GridLayout>
+
+    <!-- TODO: Update blank fragment layout -->
+    <!--<LinearLayout android:layout_height="match_parent"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:orientation="vertical">-->
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/purpose_ttl" />-->
+
+        <!--<LinearLayout android:layout_height="wrap_content"-->
+            <!--android:layout_width="wrap_content">-->
+            <!--<Button android:layout_height="@dimen/rect"-->
+                <!--android:layout_width="@dimen/rect"-->
+                <!--android:id="@+id/pur_5"-->
+                <!--android:text="@string/pur_1"-->
+                <!--android:onClick="gotoNextFragment"-->
+                <!--/>-->
+            <!--<Button android:layout_height="@dimen/rect"-->
+                <!--android:layout_width="@dimen/rect"-->
+                <!--android:text="@string/pur_2"-->
+                <!--android:id="@+id/pur_10"-->
+                <!--android:onClick="gotoNextFragment"/>-->
+        <!--</LinearLayout>-->
+
+        <!--<LinearLayout android:layout_height="wrap_content"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--&gt;-->
+            <!--<Button android:layout_height="@dimen/rect"-->
+                <!--android:layout_width="@dimen/rect"-->
+                <!--android:text="@string/pur_3"-->
+                <!--android:id="@+id/pur_15"-->
+                <!--android:onClick="gotoNextFragment"/>-->
+            <!--<Button android:layout_height="@dimen/rect"-->
+                <!--android:layout_width="@dimen/rect"-->
+                <!--android:text="@string/pur_4"-->
+                <!--android:id="@+id/pur_20"-->
+                <!--android:onClick="gotoNextFragment"/>-->
+        <!--</LinearLayout>-->
+
+    <!--</LinearLayout>-->
 
 </FrameLayout>
