@@ -86,6 +86,7 @@ public class InstallationFragment extends Fragment {
 //        }
 //    }
 
+
     @Override
     public void onDetach() {
         super.onDetach();

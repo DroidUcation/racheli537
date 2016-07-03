@@ -17,16 +17,18 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+
 import github.chenupt.springindicator.SpringIndicator;
 import github.chenupt.springindicator.viewpager.ScrollerViewPager;
+import layout.InstallationFragment;
 import layout.NoiseFloorFragment;
 import layout.RoomPurposeFragment;
 import layout.RoomSizeFragment;
 import layout.StartFragment;
 
-public class MainActivity extends AppCompatActivity implements StartFragment.OnFragmentInteractionListener,
-        NoiseFloorFragment.OnFragmentInteractionListener , RoomPurposeFragment.OnFragmentInteractionListener,
-        RoomSizeFragment.OnFragmentInteractionListener{
+public class MainActivity extends AppCompatActivity implements StartFragment.OnFragmentInteractionListener ,
+        NoiseFloorFragment.OnFragmentInteractionListener , RoomPurposeFragment.OnFragmentInteractionListener ,
+        RoomSizeFragment.OnFragmentInteractionListener , InstallationFragment.OnFragmentInteractionListener{
 
     public static class MyPagerAdapter extends FragmentPagerAdapter {
         private static int NUM_ITEMS = 4;
