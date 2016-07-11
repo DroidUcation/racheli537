@@ -59,5 +59,11 @@
                 android:layout_height="wrap_content"
                 android:text="@string/length" />
         </LinearLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="next"
+            android:id="@+id/next1"
+            android:onClick="gotoNextFragment"/>
     </LinearLayout>
 </FrameLayout>

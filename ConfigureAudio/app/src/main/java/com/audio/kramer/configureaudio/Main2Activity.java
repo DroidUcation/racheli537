@@ -9,15 +9,13 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import github.chenupt.springindicator.SpringIndicator;
+import github.chenupt.springindicator.viewpager.ScrollerViewPager;
+import layout.InstallationFragment;
 import layout.NoiseFloorFragment;
 import layout.RoomPurposeFragment;
 import layout.RoomSizeFragment;
 import layout.StartFragment;
 
-import github.chenupt.multiplemodel.viewpager.ModelPagerAdapter;
-import github.chenupt.multiplemodel.viewpager.PagerModelManager;
-import github.chenupt.springindicator.SpringIndicator;
-import github.chenupt.springindicator.viewpager.ScrollerViewPager;
 
 
 public class Main2Activity extends AppCompatActivity {
@@ -47,6 +45,8 @@ public class Main2Activity extends AppCompatActivity {
                     return new RoomPurposeFragment();//SecondFragment.newInstance(2, "Page # 3");
                 case 3: // Fragment # 1 - This will show SecondFragment
                     return new RoomSizeFragment();//SecondFragment.newInstance(2, "Page # 3");
+                case 4: // Fragment # 1 - This will show SecondFragment
+                    return new InstallationFragment();//SecondFragment.newInstance(2, "Page # 3");
                 default:
                     return null;
             }

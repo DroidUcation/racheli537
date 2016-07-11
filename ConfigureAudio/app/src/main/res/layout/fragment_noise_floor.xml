@@ -5,121 +5,127 @@
     android:layout_weight="1"
     tools:context="layout.NoiseFloorFragment">
 
-    <GridLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:columnCount="2"
-        android:rowCount="3" >
-
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/noise_floor_ttl"
             android:layout_row="0"
             android:layout_columnSpan="2"
-            style="@style/TitleFont"/>
+            style="@style/TitleFont"
+            android:paddingTop="20dp"
+            android:paddingLeft="20dp"/>
+        <RelativeLayout
+            android:layout_marginTop="100dp"
+            style="@style/RectLayout"
+            android:layout_marginLeft="60dp"
+            android:layout_gravity="left"
+            android:elevation="4dp"
+            android:onClick="gotoNextFragment">
 
-        <Button android:layout_height="@dimen/rect"
-            android:layout_width="@dimen/rect"
-            android:id="@+id/noise_db45"
-            android:text="@string/noise_1"
-            android:onClick="gotoNextFragment"
-            android:layout_rowSpan="1"
-            android:background="@drawable/installation1"
-            android:gravity="bottom"
-            />
+            <ImageButton
+                android:id="@+id/noise_db45"
+                style="@style/RectImage"
+                android:onClick="gotoNextFragment"
+                android:src="@mipmap/boardroomvid"
+                />
 
-        <Button android:layout_height="@dimen/rect"
-            android:layout_width="@dimen/rect"
-            android:text="@string/noise_2"
-            android:id="@+id/noise_db55"
-            android:onClick="gotoNextFragment"
-            android:background="@drawable/installation1"
-            android:gravity="bottom"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            />
+            <TextView
+                style="@style/RectDbText"
+                android:text="@string/noise_1_dB" />
 
-        <Button android:layout_height="@dimen/rect"
-            android:layout_width="@dimen/rect"
-            android:text="@string/noise_3"
-            android:id="@+id/noise_db60"
-            android:onClick="gotoNextFragment"
-            android:layout_rowSpan="2"
-            android:background="@drawable/installation1"
-            android:gravity="bottom"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-        />
+            <TextView
+                style="@style/TopRecText"
+                android:text="@string/noise_1" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="210dp"
+            style="@style/RectLayout"
+            android:layout_gravity="right"
+            android:elevation="4dp"
+            android:onClick="gotoNextFragment">
 
-        <Button android:layout_height="@dimen/rect"
-            android:layout_width="@dimen/rect"
-            android:text="@string/noise_4"
-            android:id="@+id/noise_db65"
-            android:onClick="gotoNextFragment"
-            android:background="@drawable/installation1"
-            android:gravity="bottom"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-           />
+            <ImageButton
+                android:id="@+id/noise_db55"
+                style="@style/RectImage"
+                android:onClick="gotoNextFragment"
+                android:src="@mipmap/boardroom" />
 
-        <Button android:layout_height="@dimen/rect"
-            android:layout_width="@dimen/rect"
-            android:text="@string/noise_5"
-            android:id="@+id/noise_db75"
-            android:onClick="gotoNextFragment"
-            android:layout_columnSpan="2"
-            android:background="@drawable/installation1"
-            android:gravity="bottom"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:layout_marginLeft="80dp"
-            />
-</GridLayout>
+            <TextView
+                style="@style/RectDbText"
+                android:text="@string/noise_2_dB" />
 
-<!-- TODO: Update blank fragment layout -->
-    <!--<LinearLayout android:layout_height="match_parent"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:orientation="vertical">-->
-    <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="@string/noise_floor_ttl" />-->
+            <TextView
+                style="@style/TopRecText"
+                android:text="@string/noise_2" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginTop="230dp"
+            style="@style/RectLayout"
+            android:layout_marginLeft="60dp"
+            android:elevation="4dp"
+            android:onClick="gotoNextFragment">
 
-    <!--<LinearLayout android:layout_height="wrap_content"-->
-        <!--android:layout_width="wrap_content">-->
-        <!--<Button android:layout_height="@dimen/rect"-->
-            <!--android:layout_width="@dimen/rect"-->
-            <!--android:id="@+id/noise_db45"-->
-            <!--android:text="@string/noise_1"-->
-            <!--android:onClick="gotoNextFragment"-->
-            <!--/>-->
-        <!--<Button android:layout_height="@dimen/rect"-->
-            <!--android:layout_width="@dimen/rect"-->
-            <!--android:text="@string/noise_2"-->
-            <!--android:id="@+id/noise_db55"-->
-            <!--android:onClick="gotoNextFragment"/>-->
-    <!--</LinearLayout>-->
+            <ImageButton
+                android:id="@+id/noise_db60"
+                style="@style/RectImage"
+                android:onClick="gotoNextFragment"
+                android:src="@mipmap/housesofworship" />
 
-    <!--<LinearLayout android:layout_height="wrap_content"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--&gt;-->
-        <!--<Button android:layout_height="@dimen/rect"-->
-            <!--android:layout_width="@dimen/rect"-->
-            <!--android:text="@string/noise_3"-->
-            <!--android:id="@+id/noise_db60"-->
-            <!--android:onClick="gotoNextFragment"/>-->
-        <!--<Button android:layout_height="@dimen/rect"-->
-            <!--android:layout_width="@dimen/rect"-->
-            <!--android:text="@string/noise_4"-->
-            <!--android:id="@+id/noise_db65"-->
-            <!--android:onClick="gotoNextFragment"/>-->
-    <!--</LinearLayout>-->
-    <!--<LinearLayout android:layout_height="wrap_content"-->
-        <!--android:layout_width="wrap_content">-->
-        <!--<Button android:layout_height="@dimen/rect"-->
-            <!--android:layout_width="@dimen/rect"-->
-            <!--android:text="@string/noise_5"-->
-            <!--android:id="@+id/noise_db75"-->
-            <!--android:onClick="gotoNextFragment"/>-->
-    <!--</LinearLayout>-->
-<!--</LinearLayout>-->
+            <TextView
+                style="@style/RectDbText"
+                android:text="@string/noise_3_dB" />
+
+            <TextView
+                style="@style/TopRecText"
+                android:text="@string/noise_3" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginTop="230dp"
+            android:layout_marginLeft="210dp"
+            style="@style/RectLayout"
+            android:elevation="4dp"
+            android:onClick="gotoNextFragment">
+
+            <ImageButton
+                android:id="@+id/noise_db65"
+                style="@style/RectImage"
+                android:onClick="gotoNextFragment"
+                android:src="@mipmap/cafe" />
+
+            <TextView
+                style="@style/RectDbText"
+                android:text="@string/noise_4_dB" />
+
+            <TextView
+                style="@style/TopRecText"
+                android:text="@string/noise_4" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginTop="360dp"
+            android:layout_marginLeft="140dp"
+            style="@style/RectLayout"
+            android:elevation="4dp"
+            android:onClick="gotoNextFragment">
+
+            <ImageButton
+                android:id="@+id/noise_db75"
+                style="@style/RectImage"
+                android:onClick="gotoNextFragment"
+                android:src="@mipmap/train" />
+
+            <TextView
+                style="@style/RectDbText"
+                android:text="@string/noise_5_dB" />
+
+            <TextView
+                style="@style/TopRecText"
+                android:text="@string/noise_5" />
+        </RelativeLayout>
+    </RelativeLayout>
+
 </FrameLayout>
+

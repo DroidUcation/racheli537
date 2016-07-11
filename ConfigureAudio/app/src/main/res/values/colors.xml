@@ -10,4 +10,6 @@
     <color name="indicator_3">#59424B</color>
     <color name="indicator_4">#161314</color>
 
+    <color name="button_bg">#ffff</color>
+
 </resources>
