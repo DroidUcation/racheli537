@@ -1,5 +1,6 @@
 package com.audio.kramer.configureaudio;
 
+import android.graphics.Point;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -8,14 +9,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import entity.IsoHelper;
 import github.chenupt.springindicator.SpringIndicator;
-import github.chenupt.springindicator.viewpager.ScrollerViewPager;
-import layout.InstallationFragment;
 import layout.NoiseFloorFragment;
 import layout.RoomPurposeFragment;
 import layout.RoomSizeFragment;
 import layout.StartFragment;
 
+import github.chenupt.multiplemodel.viewpager.ModelPagerAdapter;
+import github.chenupt.multiplemodel.viewpager.PagerModelManager;
+import github.chenupt.springindicator.SpringIndicator;
+import github.chenupt.springindicator.viewpager.ScrollerViewPager;
 
 
 public class Main2Activity extends AppCompatActivity {
@@ -45,8 +49,6 @@ public class Main2Activity extends AppCompatActivity {
                     return new RoomPurposeFragment();//SecondFragment.newInstance(2, "Page # 3");
                 case 3: // Fragment # 1 - This will show SecondFragment
                     return new RoomSizeFragment();//SecondFragment.newInstance(2, "Page # 3");
-                case 4: // Fragment # 1 - This will show SecondFragment
-                    return new InstallationFragment();//SecondFragment.newInstance(2, "Page # 3");
                 default:
                     return null;
             }
@@ -66,6 +68,13 @@ public class Main2Activity extends AppCompatActivity {
         Toast.makeText(Main2Activity.this, "on create", Toast.LENGTH_LONG).show();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+        //test isometric
+        Point point=new Point(3,5);
+        Point tempPt=new Point(0,0);
+        tempPt = IsoHelper.isoTo2D(point);
+        //
+
 
 //        ViewPager vpPager = (ViewPager) findViewById(R.id.vpPager);
 //        adapterViewPager = new MyPagerAdapter(getSupportFragmentManager());
@@ -119,4 +128,6 @@ public class Main2Activity extends AppCompatActivity {
 //            return 5;
 //        }
 //    }
+
+
 }

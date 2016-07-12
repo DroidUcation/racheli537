@@ -2,12 +2,8 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">8dp</dimen>
     <dimen name="activity_vertical_margin">8dp</dimen>
-    <dimen name="rect">110dp</dimen>
-    <dimen name="left_db">2dp</dimen>
-    <dimen name="rec_img">100dp</dimen>
-    <dimen name="rec_top">40dp</dimen>
-    <dimen name="rec_left">30dp</dimen>
-    <dimen name="rec_text_size">25px</dimen>
-    <dimen name="rec_text_top">80dp</dimen>
-
+    <dimen name="rect">140dp</dimen>
+    <dimen name="cell_lbl_size">70dp</dimen>
+    <dimen name="cell_spk_size">100dp</dimen>
+    <dimen name="cell_img_size">100dp</dimen>
 </resources>

@@ -2,110 +2,106 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_weight="1"
-    tools:context="layout.NoiseFloorFragment">
+    tools:context="layout.RoomPurposeFragment">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:columnCount="2"
+        android:rowCount="3" >
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/purpose_ttl"
             android:layout_row="0"
             android:layout_columnSpan="2"
-            style="@style/TitleFont"
-            android:paddingTop="20dp"
-            android:paddingLeft="20dp"/>
-        <RelativeLayout
-            android:layout_marginTop="100dp"
-            style="@style/RectLayout"
-            android:layout_marginLeft="60dp"
-            android:layout_gravity="left"
-            android:elevation="4dp"
-            android:onClick="gotoNextFragment">
+            style="@style/TitleFont"/>
 
-            <ImageButton
-                android:id="@+id/pur_5"
-                style="@style/RectImage"
-                android:onClick="gotoNextFragment"
-                android:src="@mipmap/drums"
-                />
+        <Button android:layout_height="@dimen/rect"
+            android:layout_width="@dimen/rect"
+            android:id="@+id/pur_5"
+            android:text="@string/pur_1"
+            android:onClick="gotoNextFragment"
+            android:layout_rowSpan="1"
+            android:background="@drawable/installation1"
+            android:gravity="bottom"
+            />
 
-            <TextView
-                style="@style/RectDbText"
-                android:text="@string/pur_1_db" />
+        <Button android:layout_height="@dimen/rect"
+            android:layout_width="@dimen/rect"
+            android:text="@string/pur_2"
+            android:id="@+id/pur_10"
+            android:onClick="gotoNextFragment"
+            android:background="@drawable/installation1"
+            android:gravity="bottom"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            />
 
-            <TextView
-                style="@style/TopRecText"
-                android:text="@string/pur_1" />
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_marginTop="100dp"
-            android:layout_marginLeft="210dp"
-            style="@style/RectLayout"
-            android:layout_gravity="right"
-            android:elevation="4dp"
-            android:onClick="gotoNextFragment">
+        <Button android:layout_height="@dimen/rect"
+            android:layout_width="@dimen/rect"
+            android:text="@string/pur_3"
+            android:id="@+id/pur_15"
+            android:onClick="gotoNextFragment"
+            android:layout_rowSpan="2"
+            android:background="@drawable/installation1"
+            android:gravity="bottom"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            />
 
-            <ImageButton
-                android:id="@+id/pur_10"
-                style="@style/RectImage"
-                android:onClick="gotoNextFragment"
-                android:src="@mipmap/speech" />
+        <Button android:layout_height="@dimen/rect"
+            android:layout_width="@dimen/rect"
+            android:text="@string/pur_4"
+            android:id="@+id/pur_20"
+            android:onClick="gotoNextFragment"
+            android:background="@drawable/installation1"
+            android:gravity="bottom"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            />
 
-            <TextView
-                style="@style/RectDbText"
-                android:text="@string/pur_2_db" />
+    </GridLayout>
 
-            <TextView
-                style="@style/TopRecText"
-                android:text="@string/pur_2" />
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_marginTop="230dp"
-            style="@style/RectLayout"
-            android:layout_marginLeft="60dp"
-            android:elevation="4dp"
-            android:onClick="gotoNextFragment">
+    <!-- TODO: Update blank fragment layout -->
+    <!--<LinearLayout android:layout_height="match_parent"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:orientation="vertical">-->
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/purpose_ttl" />-->
 
-            <ImageButton
-                android:id="@+id/pur_15"
-                style="@style/RectImage"
-                android:onClick="gotoNextFragment"
-                android:src="@mipmap/announcements" />
+        <!--<LinearLayout android:layout_height="wrap_content"-->
+            <!--android:layout_width="wrap_content">-->
+            <!--<Button android:layout_height="@dimen/rect"-->
+                <!--android:layout_width="@dimen/rect"-->
+                <!--android:id="@+id/pur_5"-->
+                <!--android:text="@string/pur_1"-->
+                <!--android:onClick="gotoNextFragment"-->
+                <!--/>-->
+            <!--<Button android:layout_height="@dimen/rect"-->
+                <!--android:layout_width="@dimen/rect"-->
+                <!--android:text="@string/pur_2"-->
+                <!--android:id="@+id/pur_10"-->
+                <!--android:onClick="gotoNextFragment"/>-->
+        <!--</LinearLayout>-->
 
-            <TextView
-                style="@style/RectDbText"
-                android:text="@string/pur_3_db" />
+        <!--<LinearLayout android:layout_height="wrap_content"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--&gt;-->
+            <!--<Button android:layout_height="@dimen/rect"-->
+                <!--android:layout_width="@dimen/rect"-->
+                <!--android:text="@string/pur_3"-->
+                <!--android:id="@+id/pur_15"-->
+                <!--android:onClick="gotoNextFragment"/>-->
+            <!--<Button android:layout_height="@dimen/rect"-->
+                <!--android:layout_width="@dimen/rect"-->
+                <!--android:text="@string/pur_4"-->
+                <!--android:id="@+id/pur_20"-->
+                <!--android:onClick="gotoNextFragment"/>-->
+        <!--</LinearLayout>-->
 
-            <TextView
-                style="@style/TopRecText"
-                android:text="@string/pur_3" />
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_marginTop="230dp"
-            android:layout_marginLeft="210dp"
-            style="@style/RectLayout"
-            android:elevation="4dp"
-            android:onClick="gotoNextFragment">
-
-            <ImageButton
-                android:id="@+id/pur_20"
-                style="@style/RectImage"
-                android:onClick="gotoNextFragment"
-                android:src="@mipmap/bgmusic" />
-
-            <TextView
-                style="@style/RectDbText"
-                android:text="@string/pur_4_db" />
-
-            <TextView
-                style="@style/TopRecText"
-                android:text="@string/pur_4" />
-        </RelativeLayout>
-
-    </RelativeLayout>
+    <!--</LinearLayout>-->
 
 </FrameLayout>
-
