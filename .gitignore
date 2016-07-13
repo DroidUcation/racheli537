@@ -30,3 +30,6 @@ proguard/
 
 # Android Studio captures folder
 captures/
+ConfigureAudio/.idea/misc.xml
+ConfigureAudio/.idea/gradle.xml
+ConfigureAudio/.idea/vcs.xml

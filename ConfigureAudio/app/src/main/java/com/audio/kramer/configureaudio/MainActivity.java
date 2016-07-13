@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import entity.ParamsData;
 import github.chenupt.springindicator.SpringIndicator;
 import github.chenupt.springindicator.viewpager.ScrollerViewPager;
 import layout.AmplifiersFragment;
@@ -29,12 +30,16 @@ import layout.NoiseFloorFragment;
 import layout.RoomPurposeFragment;
 import layout.RoomSizeFragment;
 import layout.SpeakerOptionFragment;
+import layout.ShareFragment;
+import layout.SpeakerFragment;
 import layout.StartFragment;
 
 public class MainActivity extends FragmentActivity implements StartFragment.OnFragmentInteractionListener ,
         NoiseFloorFragment.OnFragmentInteractionListener , RoomPurposeFragment.OnFragmentInteractionListener ,
         RoomSizeFragment.OnFragmentInteractionListener , InstallationFragment.OnFragmentInteractionListener ,
         SpeakerOptionFragment.OnFragmentInteractionListener, AmplifiersFragment.OnFragmentInteractionListener{
+
+    private static ParamsData paramsData;
 
     public static class MyPagerAdapter extends FragmentPagerAdapter {
         private static int NUM_ITEMS = 7;
@@ -53,9 +58,7 @@ public class MainActivity extends FragmentActivity implements StartFragment.OnFr
         @Override
         public Fragment getItem(int position) {
             switch (position) {
-                case 0: // Fragment # 0 - This will show FirstFragment
-                    return StartFragment.newInstance("1", "start");
-                case 1: // Fragment # 0 - This will show FirstFragment different title
+                case 0: // Fragment # 0 - This will show FirstFragment different title
                     //Toast.makeText(co, "before move page", Toast.LENGTH_LONG).show();
                     Log.d("pa", "before move page");
                     return NoiseFloorFragment.newInstance("2", "NoiseFloorFragment"); //new NoiseFloorFragment();
@@ -68,7 +71,9 @@ public class MainActivity extends FragmentActivity implements StartFragment.OnFr
                 case 5: // Fragment # 1 - This will show SecondFragment
                     return new SpeakerOptionFragment();//SecondFragment.newInstance(2, "Page # 3");
                 case 6: // Fragment # 1 - This will show SecondFragment
-                    return new AmplifiersFragment();//SecondFragment.newInstance(2, "Page # 3");
+                    //return new AmplifiersFragment();//SecondFragment.newInstance(2, "Page # 3");
+                    if (paramsData.NoiseFloor() > 0)
+                        return RoomPurposeFragment.newInstance("2", "Page # 3");
                 default:
                     return null;
             }
@@ -120,7 +125,11 @@ public class MainActivity extends FragmentActivity implements StartFragment.OnFr
     }
 
     public void gotoNextFragment(View view) {
-         int viewId = view.getId();
+      //  Spinner spinner = (Spinner) findViewById(R.id.spinner_length);
+        // Begin the transaction
+        //FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        int viewId = view.getId();
+        String name = view.getResources().getResourceEntryName(view.getId());//view.getTag().toString();
         switch (viewId) {
             case R.id.start_btn://If start goto noise floor
                 pager.setCurrentItem(1);
@@ -131,6 +140,9 @@ public class MainActivity extends FragmentActivity implements StartFragment.OnFr
             case R.id.noise_db60:
             case R.id.noise_db65:
             case R.id.noise_db75:
+                //ft.replace(R.id.fragment_placeholder, new RoomPurposeFragment());
+                //Button btn1 = (Button)findViewById(R.id.spk_1);
+                //paramsData.NoiseFloor(Integer.parseInt(name.substring(8,9)));
                 pager.setCurrentItem(2);
                 break;
             case R.id.pur_5://If purpose goto room size
