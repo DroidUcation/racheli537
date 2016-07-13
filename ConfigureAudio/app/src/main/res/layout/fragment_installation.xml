@@ -6,45 +6,161 @@
 
     <!-- TODO: Update blank fragment layout -->
     <!-- TODO: Update blank fragment layout -->
-    <LinearLayout android:layout_height="match_parent"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        >
+    <RelativeLayout android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/installation_ttl" />
-
-        <LinearLayout android:layout_height="wrap_content"
-            android:layout_width="wrap_content">
-            <Button android:layout_height="@dimen/rect"
-                android:layout_width="@dimen/rect"
-                android:id="@+id/ins_1"
-                android:text="@string/install_1"
-                android:onClick="gotoNextFragment"
+    <RelativeLayout android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:paddingTop="40dp"
+        >
+        <RelativeLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="@dimen/rect"
+            android:layout_height="@dimen/rect"
+            android:background="@color/button_bg"
+            android:orientation="vertical"
+            android:layout_marginLeft="40dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="@string/noise_1_dB"
+                android:layout_marginLeft="0dp"
                 />
-            <Button android:layout_height="@dimen/rect"
-                android:layout_width="@dimen/rect"
-                android:text="@string/install_2"
+            <ImageButton android:layout_height="100dp"
+                android:layout_width="100dp"
+                android:layout_marginStart="22dp"
+                android:id="@+id/ins_1"
+                android:onClick="gotoNextFragment"
+                android:background="@color/button_bg"
+                android:gravity="bottom"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_marginLeft="22dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:text="@string/install_3"
+                android:layout_marginLeft="3dp"
+                android:textSize="25px"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="@dimen/rect"
+            android:layout_height="@dimen/rect"
+            android:background="@color/button_bg"
+            android:orientation="vertical"
+            android:layout_marginLeft="40dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="@string/noise_1_dB"
+                android:layout_marginLeft="0dp"
+                />
+            <ImageButton android:layout_height="100dp"
+                android:layout_width="100dp"
+                android:layout_marginStart="22dp"
                 android:id="@+id/ins_2"
-                android:onClick="gotoNextFragment"/>
-        </LinearLayout>
-
-        <LinearLayout android:layout_height="wrap_content"
+                android:onClick="gotoNextFragment"
+                android:background="@color/button_bg"
+                android:gravity="bottom"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_marginLeft="22dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:text="@string/install_3"
+                android:layout_marginLeft="3dp"
+                android:textSize="25px"
+                />
+        </RelativeLayout>
+</RelativeLayout>
+        <RelativeLayout android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             >
-            <Button android:layout_height="@dimen/rect"
+            <RelativeLayout
+                android:layout_marginTop="10dp"
                 android:layout_width="@dimen/rect"
-                android:text="@string/install_3"
-                android:id="@+id/ins_3"
-                android:onClick="gotoNextFragment"/>
-            <Button android:layout_height="@dimen/rect"
+                android:layout_height="@dimen/rect"
+                android:background="@color/button_bg"
+                android:orientation="vertical"
+                android:layout_marginLeft="40dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="@string/noise_1_dB"
+                    android:layout_marginLeft="0dp"
+                    />
+                <ImageButton android:layout_height="100dp"
+                    android:layout_width="100dp"
+                    android:layout_marginStart="22dp"
+                    android:id="@+id/ins_3"
+                    android:onClick="gotoNextFragment"
+                    android:background="@color/button_bg"
+                    android:gravity="bottom"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:layout_marginLeft="22dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textStyle="bold"
+                    android:text="@string/install_3"
+                    android:layout_marginLeft="3dp"
+                    android:textSize="25px"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_marginTop="10dp"
                 android:layout_width="@dimen/rect"
-                android:text="@string/install_4"
-                android:id="@+id/ins_4"
-                android:onClick="gotoNextFragment"/>
-        </LinearLayout>
+                android:layout_height="@dimen/rect"
+                android:background="@color/button_bg"
+                android:orientation="vertical"
+                android:layout_marginLeft="40dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="@string/noise_1_dB"
+                    android:layout_marginLeft="0dp"
+                    />
+                <ImageButton android:layout_height="100dp"
+                    android:layout_width="100dp"
+                    android:layout_marginStart="22dp"
+                    android:id="@+id/ins_4"
+                    android:onClick="gotoNextFragment"
+                    android:background="@color/button_bg"
+                    android:gravity="bottom"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:layout_marginLeft="22dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textStyle="bold"
+                    android:text="@string/install_3"
+                    android:layout_marginLeft="3dp"
+                    android:textSize="25px"
+                    />
+            </RelativeLayout>
+        </RelativeLayout>
 
-    </LinearLayout>
+    </RelativeLayout>
 
-
+</RelativeLayout>
 </FrameLayout>

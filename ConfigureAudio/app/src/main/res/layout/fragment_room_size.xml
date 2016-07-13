@@ -4,102 +4,155 @@
     android:layout_height="match_parent"
     tools:context="layout.RoomSizeFragment">
 
-    <GridLayout
-        android:layout_width="wrap_content"
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:columnCount="3"
-        android:rowCount="3" >
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@color/button_bg"
+                android:src="@mipmap/height"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Roon Height"
+                    android:textSize="40px"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-        <TextView
+                    <Button
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:text="-"/>
+                    <TextView
+                        android:id="@+id/height_btn"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="33dp"
+                        android:text="10"/>
+                    <Button
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:text="+"
+                        android:onClick="plusClicked"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@color/button_bg"
+                android:src="@mipmap/width"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Roon Width"
+                    android:textSize="40px"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:text="-"/>
+                    <TextView
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="33dp"
+                        android:text="10"/>
+                    <Button
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:text="+"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@color/button_bg"
+                android:src="@mipmap/length"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Roon Length"
+                    android:textSize="40px"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:text="-"/>
+                    <TextView
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="33dp"
+                        android:text="10"/>
+                    <Button
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:text="+"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/room_size_ttl"
-            android:layout_row="0"
-            android:layout_columnSpan="3"
-            style="@style/TitleFont"/>
+            android:text="next"
+            android:id="@+id/next1"
 
-        <TextView
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:layout_height="wrap_content"
-            android:layout_width="@dimen/cell_lbl_size"
-            android:text="@string/width"
-            android:layout_row="1"
-            style="@style/TitleFont"/>
-
-        <!--<Spinner-->
-            <!--android:id="@+id/spinner_width"-->
-            <!--android:layout_width="@dimen/cell_spk_size"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:background="@android:drawable/btn_dropdown"-->
-            <!--android:spinnerMode="dropdown"-->
-           <!--/>-->
-        <EditText
-            android:id="@+id/txt_width"
-            android:layout_width="@dimen/cell_spk_size"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:hint="10"
-            />
-
-
-
-    </GridLayout>
-
-    <!-- TODO: Update blank fragment layout -->
-    <!--<LinearLayout android:layout_height="match_parent"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:orientation="vertical">-->
-    <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="@string/room_size_ttl" />-->
-
-    <!--<LinearLayout android:layout_height="wrap_content"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:orientation="horizontal">-->
-
-        <!--<Spinner-->
-            <!--android:id="@+id/spinner_height"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:background="@android:drawable/btn_dropdown"-->
-            <!--android:spinnerMode="dropdown" />-->
-        <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="@string/height" />-->
-    <!--</LinearLayout>-->
-    <!--<LinearLayout android:layout_height="wrap_content"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:orientation="horizontal">-->
-
-        <!--<Spinner-->
-            <!--android:id="@+id/spinner_width"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:background="@android:drawable/btn_dropdown"-->
-            <!--android:spinnerMode="dropdown" />-->
-        <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="@string/width" />-->
-    <!--</LinearLayout>-->
-
-        <!--<LinearLayout android:layout_height="wrap_content"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:orientation="horizontal">-->
-
-            <!--<Spinner-->
-                <!--android:id="@+id/spinner_length"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:background="@android:drawable/btn_dropdown"-->
-                <!--android:spinnerMode="dropdown" />-->
-            <!--<TextView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="@string/length" />-->
-        <!--</LinearLayout>-->
-    <!--</LinearLayout>-->
+            android:onClick="gotoNextFragment"/>
+    </LinearLayout>
 </FrameLayout>

@@ -62,8 +62,7 @@ public class RoomSizeFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-//        Spinner dropdown = (Spinner) getActivity().findViewById(R.id.spinner_height);
-//        String[] items = new String[]{"1", "2", "three"};
+        String[] items = new String[]{"1", "2", "three"};
         // ArrayAdapter <CharSequence>adapter = ArrayAdapter.createFromResource( getActivity(), R.array.sections , android.R.layout.simple_spinner_item);
         //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         //dropdown.setAdapter(adapter);
@@ -81,19 +80,19 @@ public class RoomSizeFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-//        Spinner spinner_length = (Spinner) view.findViewById(R.id.spinner_length);
-//        Spinner spinner_width = (Spinner) view.findViewById(R.id.spinner_width);
-//        Spinner spinner_height = (Spinner) view.findViewById(R.id.spinner_height);
-//
-//
-//        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-//                getContext(), R.array.spinner_values, android.R.layout.simple_spinner_item);
-//
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//
-//        spinner_length.setAdapter(adapter);
-//        spinner_height.setAdapter(adapter);
-//        spinner_width.setAdapter(adapter);
+       // Spinner spinner_length = (Spinner) view.findViewById(R.id.spinner_length);
+       // Spinner spinner_width = (Spinner) view.findViewById(R.id.spinner_width);
+       // Spinner spinner_height = (Spinner) view.findViewById(R.id.spinner_height);
+
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                getContext(), R.array.spinner_values, android.R.layout.simple_spinner_item);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        //spinner_length.setAdapter(adapter);
+        //spinner_height.setAdapter(adapter);
+        //spinner_width.setAdapter(adapter);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
