@@ -29,8 +29,7 @@
                 android:id="@+id/ins_1"
                 style="@style/RectImage"
                 android:onClick="gotoNextFragment"
-                android:src="@mipmap/celling"
-                android:tag="Ceiling"
+                android:src="@mipmap/cailling"
                 />
 
 
@@ -52,8 +51,7 @@
                 android:id="@+id/ins_2"
                 style="@style/RectImage"
                 android:onClick="gotoNextFragment"
-                android:src="@mipmap/tilecelling"
-                android:tag="Ceiling Tile"/>
+                android:src="@mipmap/tileceilling" />
 
 
 
@@ -74,8 +72,7 @@
                 android:id="@+id/ins_3"
                 style="@style/RectImage"
                 android:onClick="gotoNextFragment"
-                android:src="@mipmap/onwall"
-                android:tag="On-wall"/>
+                android:src="@mipmap/onwall" />
 
 
 
@@ -95,8 +92,7 @@
                 android:id="@+id/ins_4"
                 style="@style/RectImage"
                 android:onClick="gotoNextFragment"
-                android:src="@mipmap/inwall"
-                android:tag="In-wall"/>
+                android:src="@mipmap/inwall" />
 
 
 
@@ -109,3 +105,4 @@
     </RelativeLayout>
 
 </FrameLayout>
+

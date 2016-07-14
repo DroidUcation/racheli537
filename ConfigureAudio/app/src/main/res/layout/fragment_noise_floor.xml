@@ -18,6 +18,7 @@
             android:paddingTop="20dp"
             android:paddingLeft="20dp"/>
         <RelativeLayout
+            android:id="@+id/num1"
             android:layout_marginTop="100dp"
             style="@style/RectLayout"
             android:layout_marginLeft="60dp"
@@ -46,7 +47,8 @@
             style="@style/RectLayout"
             android:layout_gravity="right"
             android:elevation="4dp"
-            android:onClick="gotoNextFragment">
+            android:onClick="gotoNextFragment"
+            >
 
             <ImageButton
                 android:id="@+id/noise_db55"

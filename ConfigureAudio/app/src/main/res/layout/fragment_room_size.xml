@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <LinearLayout
+            android:paddingLeft="30dp"
             android:layout_marginTop="30dp"
             android:layout_width="match_parent"
             android:layout_height="120dp"
@@ -18,7 +19,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:background="@color/button_bg"
-                android:src="@mipmap/height"
+                android:src="@mipmap/heigth"
                 />
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -39,7 +40,9 @@
                     <Button
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
-                        android:text="-"/>
+                        android:text="-"
+                        android:id="@+id/height_minus"
+                        android:onClick="minusClicked"/>
                     <TextView
                         android:id="@+id/height_btn"
                         android:layout_width="70dp"
@@ -47,10 +50,12 @@
                         android:paddingLeft="33dp"
                         android:text="10"/>
                     <Button
+                        android:id="@+id/height_plus"
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:text="+"
-                        android:onClick="plusClicked"/>
+                        android:onClick="plusClicked"
+                        />
                 </LinearLayout>
 
             </LinearLayout>
@@ -58,6 +63,7 @@
 
         </LinearLayout>
         <LinearLayout
+            android:paddingLeft="30dp"
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:orientation="horizontal">
@@ -86,16 +92,21 @@
                     <Button
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
-                        android:text="-"/>
+                        android:text="-"
+                        android:id="@+id/width_minus"
+                        android:onClick="minusClicked" />
                     <TextView
                         android:layout_width="70dp"
                         android:layout_height="wrap_content"
                         android:paddingLeft="33dp"
-                        android:text="10"/>
+                        android:text="10"
+                        android:id="@+id/width_btn"/>
                     <Button
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
-                        android:text="+"/>
+                        android:text="+"
+                        android:id="@+id/width_plus"
+                        android:onClick="plusClicked"/>
                 </LinearLayout>
 
             </LinearLayout>
@@ -103,8 +114,9 @@
 
         </LinearLayout>
         <LinearLayout
+            android:paddingLeft="30dp"
             android:layout_width="match_parent"
-            android:layout_height="160dp"
+            android:layout_height="120dp"
             android:orientation="horizontal">
             <ImageView
                 android:layout_width="100dp"
@@ -131,16 +143,21 @@
                     <Button
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
-                        android:text="-"/>
+                        android:text="-"
+                        android:id="@+id/length_minus"
+                        android:onClick="minusClicked"/>
                     <TextView
                         android:layout_width="70dp"
                         android:layout_height="wrap_content"
                         android:paddingLeft="33dp"
-                        android:text="10"/>
+                        android:text="10"
+                        android:id="@+id/length_btn"/>
                     <Button
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
-                        android:text="+"/>
+                        android:text="+"
+                        android:id="@+id/length_plus"
+                        android:onClick="plusClicked"/>
                 </LinearLayout>
 
             </LinearLayout>
@@ -148,10 +165,14 @@
 
         </LinearLayout>
         <Button
+            android:layout_marginRight="10dp"
+            android:layout_gravity="right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="next"
             android:id="@+id/next1"
+            android:background = "@drawable/roundedbutton"
+            android:textColor="@android:color/white"
 
             android:onClick="gotoNextFragment"/>
     </LinearLayout>
