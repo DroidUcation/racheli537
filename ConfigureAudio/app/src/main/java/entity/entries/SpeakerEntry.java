@@ -11,13 +11,15 @@ import entity.entries.DatabaseContract;
 public class SpeakerEntry {
 
     public  static final String TBL_SPEAKERS = "TBL_SPEAKERS";
-    public  static final String ID = "id";
+    public  static final String ID = "_id"; //ID = "id";
     public  static final String NAME = "name";
     public  static final String STEREO = "stereo";
     public  static final String PLENUM = "plenum";
     public  static final String QUALITY = "quality";
     public  static final String INSTALLATION = "installation";
     public  static final String INCHES = "inches";
+    public  static final String DESCRIPTION = "description";
+    public  static final String PORT_NUMBER = "port_number";
 
     //DATA
     public  static final String QUALITY_HP = "hp";

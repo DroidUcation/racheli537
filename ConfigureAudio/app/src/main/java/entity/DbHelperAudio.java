@@ -42,13 +42,16 @@ public class DbHelperAudio extends SQLiteOpenHelper {
 //        Cursor c = db.rawQuery(select, null);
         String CREATE_SPEAKERS_TABLE =
                 "CREATE TABLE IF NOT EXISTS " + SpeakerEntry.TBL_SPEAKERS + "("
-                        + SpeakerEntry.ID + " INTEGER,"
+                        //+ SpeakerEntry.ID + " INTEGER,"
+                        + SpeakerEntry.ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                         + SpeakerEntry.NAME + " TEXT,"
                         + SpeakerEntry.STEREO + " TEXT,"
                         + SpeakerEntry.PLENUM + " TEXT,"
                         + SpeakerEntry.QUALITY + " TEXT,"
                         + SpeakerEntry.INSTALLATION + " TEXT,"
-                        + SpeakerEntry.INCHES + " NUMERIC"
+                        + SpeakerEntry.INCHES + " NUMERIC,"
+                        + SpeakerEntry.DESCRIPTION + " TEXT,"
+                        + SpeakerEntry.PORT_NUMBER + " TEXT"
                         + ")";
 
 //        String CREATE_AMP_TABLE = "CREATE TABLE " + TBL_AMP + "("
@@ -90,6 +93,8 @@ public class DbHelperAudio extends SQLiteOpenHelper {
         values.put(SpeakerEntry.QUALITY, SpeakerEntry.QUALITY_COM);
         values.put(SpeakerEntry.INSTALLATION, SpeakerEntry.INSTALLATION_IN_WALL);
         values.put(SpeakerEntry.INCHES, 6.5);
+        values.put(SpeakerEntry.DESCRIPTION, "6.5−Inch, 2−Way Open−Back Rectangular In−Wall Speakers");
+        values.put(SpeakerEntry.PORT_NUMBER, "60-000069");
         // insert row
         db.insert(SpeakerEntry.TBL_SPEAKERS, null, values);
 
@@ -101,6 +106,8 @@ public class DbHelperAudio extends SQLiteOpenHelper {
         values.put(SpeakerEntry.QUALITY, SpeakerEntry.QUALITY_HP);
         values.put(SpeakerEntry.INSTALLATION, SpeakerEntry.INSTALLATION_IN_WALL);
         values.put(SpeakerEntry.INCHES, 6.5);
+        values.put(SpeakerEntry.DESCRIPTION, "6.5-Inch, High-Performance, In-Wall Stereo Speaker");
+        values.put(SpeakerEntry.PORT_NUMBER, "60-000069");
         // insert row
         db.insert(SpeakerEntry.TBL_SPEAKERS, null, values);
 
@@ -112,6 +119,8 @@ public class DbHelperAudio extends SQLiteOpenHelper {
         values.put(SpeakerEntry.QUALITY, SpeakerEntry.QUALITY_COM);
         values.put(SpeakerEntry.INSTALLATION, SpeakerEntry.INSTALLATION_ON_WALL);
         values.put(SpeakerEntry.INCHES, 4);
+        values.put(SpeakerEntry.DESCRIPTION, "4−Inch, 2−Way On−Wall Speakers");
+        values.put(SpeakerEntry.PORT_NUMBER, "60-000069");
         // insert row
         db.insert(SpeakerEntry.TBL_SPEAKERS, null, values);
 
@@ -123,6 +132,8 @@ public class DbHelperAudio extends SQLiteOpenHelper {
         values.put(SpeakerEntry.QUALITY, SpeakerEntry.QUALITY_COM);
         values.put(SpeakerEntry.INSTALLATION, SpeakerEntry.INSTALLATION_ON_WALL);
         values.put(SpeakerEntry.INCHES, 5.25);
+        values.put(SpeakerEntry.DESCRIPTION, "5.25−Inch, 2−Way On−Wall Speakers");
+        values.put(SpeakerEntry.PORT_NUMBER, "60-000069");
         // insert row
         db.insert(SpeakerEntry.TBL_SPEAKERS, null, values);
 
@@ -134,6 +145,8 @@ public class DbHelperAudio extends SQLiteOpenHelper {
         values.put(SpeakerEntry.QUALITY, SpeakerEntry.QUALITY_COM);
         values.put(SpeakerEntry.INSTALLATION, SpeakerEntry.INSTALLATION_ON_WALL);
         values.put(SpeakerEntry.INCHES, 6.5);
+        values.put(SpeakerEntry.DESCRIPTION, "6.5−Inch, 2−Way On−Wall Speakers");
+        values.put(SpeakerEntry.PORT_NUMBER, "60-000069");
         // insert row
         db.insert(SpeakerEntry.TBL_SPEAKERS, null, values);
 
@@ -145,6 +158,8 @@ public class DbHelperAudio extends SQLiteOpenHelper {
         values.put(SpeakerEntry.QUALITY, SpeakerEntry.QUALITY_HP);
         values.put(SpeakerEntry.INSTALLATION, SpeakerEntry.INSTALLATION_ON_WALL);
         values.put(SpeakerEntry.INCHES, 5.25);
+        values.put(SpeakerEntry.DESCRIPTION, "5.25−Inch, On−Wall 2−Way Powered Speakers");
+        values.put(SpeakerEntry.PORT_NUMBER, "60-000069");
         // insert row
         db.insert(SpeakerEntry.TBL_SPEAKERS, null, values);
 
@@ -157,6 +172,8 @@ public class DbHelperAudio extends SQLiteOpenHelper {
         values.put(SpeakerEntry.QUALITY, SpeakerEntry.QUALITY_HP);
         values.put(SpeakerEntry.INSTALLATION, SpeakerEntry.INSTALLATION_ON_WALL);
         values.put(SpeakerEntry.INCHES, 4);
+        values.put(SpeakerEntry.DESCRIPTION, "64-Inch, 2-Way On-Wall Speakers");
+        values.put(SpeakerEntry.PORT_NUMBER, "60-000069");
         // insert row
         db.insert(SpeakerEntry.TBL_SPEAKERS, null, values);
 
@@ -168,6 +185,8 @@ public class DbHelperAudio extends SQLiteOpenHelper {
         values.put(SpeakerEntry.QUALITY, SpeakerEntry.QUALITY_HP);
         values.put(SpeakerEntry.INSTALLATION, SpeakerEntry.INSTALLATION_ON_WALL);
         values.put(SpeakerEntry.INCHES, 5.25);
+        values.put(SpeakerEntry.DESCRIPTION, "5.25-Inch, 2-Way On-Wall Speakers");
+        values.put(SpeakerEntry.PORT_NUMBER, "60-000069");
         // insert row
         db.insert(SpeakerEntry.TBL_SPEAKERS, null, values);
 
@@ -179,6 +198,8 @@ public class DbHelperAudio extends SQLiteOpenHelper {
         values.put(SpeakerEntry.QUALITY, SpeakerEntry.QUALITY_HP);
         values.put(SpeakerEntry.INSTALLATION, SpeakerEntry.INSTALLATION_ON_WALL);
         values.put(SpeakerEntry.INCHES, 6.5);
+        values.put(SpeakerEntry.DESCRIPTION, "6.5-Inch, 2-Way On-Wall Speakers");
+        values.put(SpeakerEntry.PORT_NUMBER, "60-000069");
         // insert row
         db.insert(SpeakerEntry.TBL_SPEAKERS, null, values);
 
@@ -187,9 +208,11 @@ public class DbHelperAudio extends SQLiteOpenHelper {
         values.put(SpeakerEntry.NAME, "Yarden 6-OD");
         values.put(SpeakerEntry.STEREO, "N");
         values.put(SpeakerEntry.PLENUM, "N");
-        values.put(SpeakerEntry.QUALITY, SpeakerEntry.QUALITY_COM);
+        values.put(SpeakerEntry.QUALITY, SpeakerEntry.QUALITY_HP);
         values.put(SpeakerEntry.INSTALLATION, SpeakerEntry.INSTALLATION_ON_WALL);
         values.put(SpeakerEntry.INCHES, 6.5);
+        values.put(SpeakerEntry.DESCRIPTION, "6.5−Inch, High−Performance, On−Wall Stereo Speaker");
+        values.put(SpeakerEntry.PORT_NUMBER, "60-000069");
         // insert row
         db.insert(SpeakerEntry.TBL_SPEAKERS, null, values);
 
@@ -201,6 +224,8 @@ public class DbHelperAudio extends SQLiteOpenHelper {
         values.put(SpeakerEntry.QUALITY, SpeakerEntry.QUALITY_COM);
         values.put(SpeakerEntry.INSTALLATION, SpeakerEntry.INSTALLATION_CEILING);
         values.put(SpeakerEntry.INCHES, 4);
+        values.put(SpeakerEntry.DESCRIPTION, "4−Inch, 2−Way Closed−Back Ceiling Speakers");
+        values.put(SpeakerEntry.PORT_NUMBER, "60-000069");
         // insert row
         db.insert(SpeakerEntry.TBL_SPEAKERS, null, values);
 
@@ -212,6 +237,8 @@ public class DbHelperAudio extends SQLiteOpenHelper {
         values.put(SpeakerEntry.QUALITY, SpeakerEntry.QUALITY_COM);
         values.put(SpeakerEntry.INSTALLATION, SpeakerEntry.INSTALLATION_CEILING);
         values.put(SpeakerEntry.INCHES, 6.5);
+        values.put(SpeakerEntry.DESCRIPTION, "6.5−Inch, 2−Way Closed−Back Ceiling Speakers");
+        values.put(SpeakerEntry.PORT_NUMBER, "60-000069");
         // insert row
         db.insert(SpeakerEntry.TBL_SPEAKERS, null, values);
 
@@ -223,6 +250,8 @@ public class DbHelperAudio extends SQLiteOpenHelper {
         values.put(SpeakerEntry.QUALITY, SpeakerEntry.QUALITY_COM);
         values.put(SpeakerEntry.INSTALLATION, SpeakerEntry.INSTALLATION_CEILING);
         values.put(SpeakerEntry.INCHES, 8);
+        values.put(SpeakerEntry.DESCRIPTION, "8−Inch, 2−Way Closed−Back Ceiling Speakers");
+        values.put(SpeakerEntry.PORT_NUMBER, "60-000069");
         // insert row
         db.insert(SpeakerEntry.TBL_SPEAKERS, null, values);
 
@@ -234,6 +263,8 @@ public class DbHelperAudio extends SQLiteOpenHelper {
         values.put(SpeakerEntry.QUALITY, SpeakerEntry.QUALITY_COM);
         values.put(SpeakerEntry.INSTALLATION, SpeakerEntry.INSTALLATION_CEILING);
         values.put(SpeakerEntry.INCHES, 4);
+        values.put(SpeakerEntry.DESCRIPTION, "4−Inch, 2−Way Open−Back Ceiling Speakers");
+        values.put(SpeakerEntry.PORT_NUMBER, "60-000069");
         // insert row
         db.insert(SpeakerEntry.TBL_SPEAKERS, null, values);
 
@@ -245,6 +276,8 @@ public class DbHelperAudio extends SQLiteOpenHelper {
         values.put(SpeakerEntry.QUALITY, SpeakerEntry.QUALITY_COM);
         values.put(SpeakerEntry.INSTALLATION, SpeakerEntry.INSTALLATION_CEILING);
         values.put(SpeakerEntry.INCHES, 6.5);
+        values.put(SpeakerEntry.DESCRIPTION, "6.5−Inch, 2−Way Open−Back Ceiling Speakers");
+        values.put(SpeakerEntry.PORT_NUMBER, "60-000069");
         // insert row
         db.insert(SpeakerEntry.TBL_SPEAKERS, null, values);
 
@@ -256,6 +289,8 @@ public class DbHelperAudio extends SQLiteOpenHelper {
         values.put(SpeakerEntry.QUALITY, SpeakerEntry.QUALITY_COM);
         values.put(SpeakerEntry.INSTALLATION, SpeakerEntry.INSTALLATION_CEILING);
         values.put(SpeakerEntry.INCHES, 8);
+        values.put(SpeakerEntry.DESCRIPTION, "8−Inch, 2−Way Open−Back Ceiling Speakers");
+        values.put(SpeakerEntry.PORT_NUMBER, "60-000069");
         // insert row
         db.insert(SpeakerEntry.TBL_SPEAKERS, null, values);
 
@@ -264,9 +299,11 @@ public class DbHelperAudio extends SQLiteOpenHelper {
         values.put(SpeakerEntry.NAME, "Tavor 8-T");
         values.put(SpeakerEntry.STEREO, "N");
         values.put(SpeakerEntry.PLENUM, "N");
-        values.put(SpeakerEntry.QUALITY, SpeakerEntry.QUALITY_COM);
+        values.put(SpeakerEntry.QUALITY, SpeakerEntry.QUALITY_HP);
         values.put(SpeakerEntry.INSTALLATION, SpeakerEntry.INSTALLATION_CEILING_TILE);
         values.put(SpeakerEntry.INCHES, 8);
+        values.put(SpeakerEntry.DESCRIPTION, "8-Inch, High-Performance, Powered Ceiling Tile Speaker");
+        values.put(SpeakerEntry.PORT_NUMBER, "60-000069");
         // insert row
         db.insert(SpeakerEntry.TBL_SPEAKERS, null, values);
 
@@ -278,6 +315,8 @@ public class DbHelperAudio extends SQLiteOpenHelper {
         values.put(SpeakerEntry.QUALITY, SpeakerEntry.QUALITY_HP);
         values.put(SpeakerEntry.INSTALLATION, SpeakerEntry.INSTALLATION_CEILING);
         values.put(SpeakerEntry.INCHES, 4);
+        values.put(SpeakerEntry.DESCRIPTION, "4−Inch, 2−Way Closed−Back Ceiling Speakers");
+        values.put(SpeakerEntry.PORT_NUMBER, "60-000069");
         // insert row
         db.insert(SpeakerEntry.TBL_SPEAKERS, null, values);
 
@@ -289,6 +328,8 @@ public class DbHelperAudio extends SQLiteOpenHelper {
         values.put(SpeakerEntry.QUALITY, SpeakerEntry.QUALITY_HP);
         values.put(SpeakerEntry.INSTALLATION, SpeakerEntry.INSTALLATION_CEILING);
         values.put(SpeakerEntry.INCHES, 6.5);
+        values.put(SpeakerEntry.DESCRIPTION, "6.5−Inch, 2−Way Closed−Back Ceiling Speakers");
+        values.put(SpeakerEntry.PORT_NUMBER, "60-000069");
         // insert row
         db.insert(SpeakerEntry.TBL_SPEAKERS, null, values);
 
@@ -300,6 +341,8 @@ public class DbHelperAudio extends SQLiteOpenHelper {
         values.put(SpeakerEntry.QUALITY, SpeakerEntry.QUALITY_HP);
         values.put(SpeakerEntry.INSTALLATION, SpeakerEntry.INSTALLATION_CEILING);
         values.put(SpeakerEntry.INCHES, 8);
+        values.put(SpeakerEntry.DESCRIPTION, "8−Inch, 2−Way Closed−Back Ceiling Speakers");
+        values.put(SpeakerEntry.PORT_NUMBER, "60-000069");
         // insert row
         db.insert(SpeakerEntry.TBL_SPEAKERS, null, values);
 
@@ -311,6 +354,8 @@ public class DbHelperAudio extends SQLiteOpenHelper {
         values.put(SpeakerEntry.QUALITY, SpeakerEntry.QUALITY_HP);
         values.put(SpeakerEntry.INSTALLATION, SpeakerEntry.INSTALLATION_CEILING);
         values.put(SpeakerEntry.INCHES, 6.5);
+        values.put(SpeakerEntry.DESCRIPTION, "6.5−Inch, 2−Way Open−Back Rectangular In−Wall Speakers");
+        values.put(SpeakerEntry.PORT_NUMBER, "60-000069");
         // insert row
         db.insert(SpeakerEntry.TBL_SPEAKERS, null, values);
 
@@ -322,25 +367,10 @@ public class DbHelperAudio extends SQLiteOpenHelper {
         values.put(SpeakerEntry.QUALITY, SpeakerEntry.QUALITY_HP);
         values.put(SpeakerEntry.INSTALLATION, SpeakerEntry.INSTALLATION_CEILING);
         values.put(SpeakerEntry.INCHES, 8);
+        values.put(SpeakerEntry.DESCRIPTION, "8−Inch, High−Power, 2−Way Closed−Back Ceiling Speakers");
+        values.put(SpeakerEntry.PORT_NUMBER, "60-000069");
         // insert row
         db.insert(SpeakerEntry.TBL_SPEAKERS, null, values);
-
-//        2857	Yarden 4-O
-//        2858	Yarden 5-O
-//        2859	Yarden 6-O
-//        2860	Yarden 6-OD
-//        2847	Galil 4-C
-//        2864	Galil 6-C
-//        2848	Galil 8-C
-//        2940	Galil 4-CO
-//        2544	Galil 6-CO
-//        2985	Galil 8-CO
-//        2855	Tavor 8-T
-//        2849	Yarden 4-C
-//        2850	Yarden 6-C
-//        2851	Yarden 8-C
-//        2852	Yarden 6-CH
-//        2853	Yarden 8-CH
     }
 }
 

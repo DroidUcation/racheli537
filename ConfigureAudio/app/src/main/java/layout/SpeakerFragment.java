@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -115,18 +116,18 @@ public class SpeakerFragment extends Fragment {
         if (cursor.moveToFirst()) {
             while(!cursor.isAfterLast() && flag < 2) { // If you use c.moveToNext() here, you will bypass the first row, which is WRONG
                 flag ++;
-                String strDescription = cursor.getString(cursor.getColumnIndexOrThrow(SpeakerEntry.INCHES)) + "-Inch, " + cursor.getString(cursor.getColumnIndexOrThrow(SpeakerEntry.INSTALLATION)) + " Speakers";
+                //String strDescription = cursor.getString(cursor.getColumnIndexOrThrow(SpeakerEntry.INCHES)) + "-Inch, " + cursor.getString(cursor.getColumnIndexOrThrow(SpeakerEntry.INSTALLATION)) + " Speakers";
                 if (flag == 1) {
                     TextView txt1 = (TextView) mView.findViewById(R.id.spk_txt1);
                     txt1.setText(cursor.getString(cursor.getColumnIndexOrThrow(SpeakerEntry.NAME)));
                     TextView txt11 = (TextView) mView.findViewById(R.id.spk_txt11);
-                    txt11.setText(strDescription);
+                    txt11.setText(cursor.getString(cursor.getColumnIndexOrThrow(SpeakerEntry.DESCRIPTION)));
                     Button btn1 = (Button) mView.findViewById(R.id.spk_1);
                     btn1.setText("Comercial");
                     switch (paramsData.Installation())
                     {
                         case SpeakerEntry.INSTALLATION_CEILING_TILE:
-                            btn1.setBackground(getResources().getDrawable(R.drawable.ceiling_tile_hp));
+                            btn1.setBackground(getResources().getDrawable( R.drawable.ceiling_tile_hp));
                             btn1.setText("High Performance");
                             break;
                         case SpeakerEntry.INSTALLATION_CEILING:
@@ -146,7 +147,7 @@ public class SpeakerFragment extends Fragment {
                     TextView txt1 = (TextView) mView.findViewById(R.id.spk_txt2);
                     txt1.setText(cursor.getString(cursor.getColumnIndexOrThrow(SpeakerEntry.NAME)));
                     TextView txt11 = (TextView) mView.findViewById(R.id.spk_txt22);
-                    txt11.setText(strDescription);
+                    txt11.setText(cursor.getString(cursor.getColumnIndexOrThrow(SpeakerEntry.DESCRIPTION)));
                     Button btn2 = (Button) mView.findViewById(R.id.spk_2);
                     btn2.setText("High Performance");
                     switch (paramsData.Installation())
@@ -181,7 +182,7 @@ public class SpeakerFragment extends Fragment {
             txt22.setVisibility(View.GONE);
             //Toast.makeText(getActivity(),"Text!",Toast.LENGTH_SHORT).show();
         }
-
+        cursor.close();
     }
 
     // TODO: Rename method, update argument and hook method into UI event

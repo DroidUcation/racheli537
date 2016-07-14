@@ -16,7 +16,7 @@ import com.audio.kramer.configureaudio.R;
 
 public class AudioCursorAdapter extends CursorAdapter {
 
-    public AudioCursorAdapter(Context context, Cursor c, int flags) {
+    public AudioCursorAdapter(Context context, Cursor c){//, int flags) {
         super(context, c, 0);
     }
 

@@ -10,7 +10,7 @@ public class ParamsData {
     private int width;
     private int high;
     private String installation;
-    private int speaker;
+    private String speaker;
     private int amplifier;
 
     public ParamsData()
@@ -64,13 +64,21 @@ public class ParamsData {
         this.installation = installation;
     }
 
-    public int Speaker() {
+    public String Speaker() {
         return speaker;
     }
 
-    public void Speaker(int id) {
-        this.speaker = id;
+    public void Speaker(String speakerName) {
+        this.speaker = speakerName;
     }
+
+//    public int Speaker() {
+//        return speaker;
+//    }
+//
+//    public void Speaker(int id) {
+//        this.speaker = id;
+//    }
 
     public int Amplifier() {
         return amplifier;

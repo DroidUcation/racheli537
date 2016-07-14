@@ -2,165 +2,110 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_weight="1"
     tools:context="layout.InstallationFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <!-- TODO: Update blank fragment layout -->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        >
-    <RelativeLayout android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/installation_ttl" />
-    <RelativeLayout android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:paddingTop="40dp"
-        >
+            android:text="@string/purpose_ttl"
+            android:layout_row="0"
+            android:layout_columnSpan="2"
+            style="@style/TitleFont"
+            android:paddingTop="20dp"
+            android:paddingLeft="20dp"/>
         <RelativeLayout
-            android:layout_marginTop="10dp"
-            android:layout_width="@dimen/rect"
-            android:layout_height="@dimen/rect"
-            android:background="@color/button_bg"
-            android:orientation="vertical"
-            android:layout_marginLeft="40dp"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="@string/noise_1_dB"
-                android:layout_marginLeft="0dp"
-                />
-            <ImageButton android:layout_height="100dp"
-                android:layout_width="100dp"
-                android:layout_marginStart="22dp"
+            android:layout_marginTop="100dp"
+            style="@style/RectLayout"
+            android:layout_marginLeft="60dp"
+            android:layout_gravity="left"
+            android:elevation="4dp"
+            android:onClick="gotoNextFragment">
+
+            <ImageView
                 android:id="@+id/ins_1"
+                style="@style/RectImage"
                 android:onClick="gotoNextFragment"
-                android:background="@color/button_bg"
-                android:gravity="bottom"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:layout_marginLeft="22dp" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textStyle="bold"
-                android:text="@string/install_3"
-                android:layout_marginLeft="3dp"
-                android:textSize="25px"
+                android:src="@mipmap/celling"
+                android:tag="Ceiling"
                 />
+
+
+
+            <TextView
+                android:layout_marginTop="95dp"
+                style="@style/TopRecText"
+                android:text="Ceiling" />
         </RelativeLayout>
         <RelativeLayout
-            android:layout_marginTop="10dp"
-            android:layout_width="@dimen/rect"
-            android:layout_height="@dimen/rect"
-            android:background="@color/button_bg"
-            android:orientation="vertical"
-            android:layout_marginLeft="40dp"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="@string/noise_1_dB"
-                android:layout_marginLeft="0dp"
-                />
-            <ImageButton android:layout_height="100dp"
-                android:layout_width="100dp"
-                android:layout_marginStart="22dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="210dp"
+            style="@style/RectLayout"
+            android:layout_gravity="right"
+            android:elevation="4dp"
+            android:onClick="gotoNextFragment">
+
+            <ImageView
                 android:id="@+id/ins_2"
+                style="@style/RectImage"
                 android:onClick="gotoNextFragment"
-                android:background="@color/button_bg"
-                android:gravity="bottom"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:layout_marginLeft="22dp" />
+                android:src="@mipmap/tilecelling"
+                android:tag="Ceiling Tile"/>
+
+
+
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textStyle="bold"
-                android:text="@string/install_3"
-                android:layout_marginLeft="3dp"
-                android:textSize="25px"
-                />
+                android:layout_marginTop="95dp"
+                style="@style/TopRecText"
+                android:text="Tile Ceiling" />
         </RelativeLayout>
-</RelativeLayout>
-        <RelativeLayout android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            >
-            <RelativeLayout
-                android:layout_marginTop="10dp"
-                android:layout_width="@dimen/rect"
-                android:layout_height="@dimen/rect"
-                android:background="@color/button_bg"
-                android:orientation="vertical"
-                android:layout_marginLeft="40dp"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:text="@string/noise_1_dB"
-                    android:layout_marginLeft="0dp"
-                    />
-                <ImageButton android:layout_height="100dp"
-                    android:layout_width="100dp"
-                    android:layout_marginStart="22dp"
-                    android:id="@+id/ins_3"
-                    android:onClick="gotoNextFragment"
-                    android:background="@color/button_bg"
-                    android:gravity="bottom"
-                    android:layout_marginTop="@dimen/activity_vertical_margin"
-                    android:layout_marginLeft="22dp" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:textStyle="bold"
-                    android:text="@string/install_3"
-                    android:layout_marginLeft="3dp"
-                    android:textSize="25px"
-                    />
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_marginTop="10dp"
-                android:layout_width="@dimen/rect"
-                android:layout_height="@dimen/rect"
-                android:background="@color/button_bg"
-                android:orientation="vertical"
-                android:layout_marginLeft="40dp"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:text="@string/noise_1_dB"
-                    android:layout_marginLeft="0dp"
-                    />
-                <ImageButton android:layout_height="100dp"
-                    android:layout_width="100dp"
-                    android:layout_marginStart="22dp"
-                    android:id="@+id/ins_4"
-                    android:onClick="gotoNextFragment"
-                    android:background="@color/button_bg"
-                    android:gravity="bottom"
-                    android:layout_marginTop="@dimen/activity_vertical_margin"
-                    android:layout_marginLeft="22dp" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:textStyle="bold"
-                    android:text="@string/install_3"
-                    android:layout_marginLeft="3dp"
-                    android:textSize="25px"
-                    />
-            </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginTop="230dp"
+            style="@style/RectLayout"
+            android:layout_marginLeft="60dp"
+            android:elevation="4dp"
+
+            android:onClick="gotoNextFragment">
+
+            <ImageView
+                android:id="@+id/ins_3"
+                style="@style/RectImage"
+                android:onClick="gotoNextFragment"
+                android:src="@mipmap/onwall"
+                android:tag="On-wall"/>
+
+
+
+            <TextView
+                style="@style/TopRecText"
+                android:layout_marginTop="95dp"
+                android:text="On Wall" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginTop="230dp"
+            android:layout_marginLeft="210dp"
+            style="@style/RectLayout"
+            android:elevation="4dp"
+            android:onClick="gotoNextFragment">
+
+            <ImageView
+                android:id="@+id/ins_4"
+                style="@style/RectImage"
+                android:onClick="gotoNextFragment"
+                android:src="@mipmap/inwall"
+                android:tag="In-wall"/>
+
+
+
+            <TextView
+                android:layout_marginTop="95dp"
+                style="@style/TopRecText"
+                android:text="@string/pur_4" />
         </RelativeLayout>
 
     </RelativeLayout>
 
-</RelativeLayout>
 </FrameLayout>
