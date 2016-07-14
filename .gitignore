@@ -33,3 +33,4 @@ captures/
 ConfigureAudio/.idea/misc.xml
 ConfigureAudio/.idea/gradle.xml
 ConfigureAudio/.idea/vcs.xml
+compiler.xml
