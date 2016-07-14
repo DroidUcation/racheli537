@@ -171,6 +171,21 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
 //        // Complete the changes added above
 //        ft.commit();
 
+        pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+        });
 
 
 
@@ -243,7 +258,10 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
             case R.id.pur_15:
             case R.id.pur_20:
                 //ft.replace(R.id.fragment_placeholder, new RoomSizeFragment());
-                paramsData.RoomPropose(Integer.parseInt(name.substring(4,6)));
+                if (viewId == R.id.pur_5)
+                    paramsData.RoomPropose(Integer.parseInt(name.substring(4,5)));
+                else
+                    paramsData.RoomPropose(Integer.parseInt(name.substring(4,6)));
 
                 pager.setCurrentItem(3);
                 break;

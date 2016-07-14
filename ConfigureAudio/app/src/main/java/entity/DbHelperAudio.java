@@ -32,7 +32,7 @@ public class DbHelperAudio extends SQLiteOpenHelper {
         super.onOpen(db);
         Log.d("a", "in on open SQLiteOpenHelper");
         //remove
-        onUpgrade(db, 1, 2);
+        //onUpgrade(db, 1, 2);
         onCreate(db);
     }
 
