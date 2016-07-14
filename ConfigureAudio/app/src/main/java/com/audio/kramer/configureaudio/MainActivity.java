@@ -1,30 +1,17 @@
 package com.audio.kramer.configureaudio;
 
-import android.content.ContentValues;
-import android.content.Context;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.view.textservice.SpellCheckerSession;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.RelativeLayout;
-import android.widget.Spinner;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-
-import java.util.Timer;
-
-import animation.ZoomOutPageTransformer;
+import entity.ParamsData;
 import github.chenupt.springindicator.SpringIndicator;
 import github.chenupt.springindicator.viewpager.ScrollerViewPager;
 import layout.AmplifiersFragment;
@@ -32,13 +19,17 @@ import layout.InstallationFragment;
 import layout.NoiseFloorFragment;
 import layout.RoomPurposeFragment;
 import layout.RoomSizeFragment;
-import layout.SpeakerOptionFragment;
+import layout.ShareFragment;
+import layout.SpeakerFragment;
 import layout.StartFragment;
 
-public class MainActivity extends FragmentActivity implements StartFragment.OnFragmentInteractionListener ,
-        NoiseFloorFragment.OnFragmentInteractionListener , RoomPurposeFragment.OnFragmentInteractionListener ,
-        RoomSizeFragment.OnFragmentInteractionListener , InstallationFragment.OnFragmentInteractionListener ,
-        SpeakerOptionFragment.OnFragmentInteractionListener, AmplifiersFragment.OnFragmentInteractionListener{
+public class MainActivity extends AppCompatActivity implements StartFragment.OnFragmentInteractionListener,
+        NoiseFloorFragment.OnFragmentInteractionListener, RoomPurposeFragment.OnFragmentInteractionListener
+        , ShareFragment.OnFragmentInteractionListener,
+        RoomSizeFragment.OnFragmentInteractionListener, SpeakerFragment.OnFragmentInteractionListener
+        , InstallationFragment.OnFragmentInteractionListener {
+
+    private static ParamsData paramsData;
 
     public static class MyPagerAdapter extends FragmentPagerAdapter {
         private static int NUM_ITEMS = 7;
@@ -53,84 +44,93 @@ public class MainActivity extends FragmentActivity implements StartFragment.OnFr
             return NUM_ITEMS;
         }
 
+        StartFragment startFragment;
+        NoiseFloorFragment noiseFloorFragment;
+        RoomPurposeFragment roomPurposeFragment;
+        RoomSizeFragment roomSizeFragment;
+        InstallationFragment installationFragment;
+        SpeakerFragment speakerFragment;
+        ShareFragment shareFragment;
+        AmplifiersFragment amplifiersFragment;
+
         // Returns the fragment to display for that page
         @Override
         public Fragment getItem(int position) {
+
             switch (position) {
-                case 0: // Fragment # 0 - This will show FirstFragment
-                    return new StartFragment();
-                case 1: // Fragment # 0 - This will show FirstFragment different title
-                    //Toast.makeText(co, "before move page", Toast.LENGTH_LONG).show();
-                    Log.d("pa", "before move page");
-                    return NoiseFloorFragment.newInstance("2", "NoiseFloorFragment"); //new NoiseFloorFragment();
+                case 0: // Fragment # 0 - This will show FirstFragment different title
+                    if (startFragment == null)
+                        startFragment = new StartFragment();
+                    return startFragment;
+                case 1:
+                    if (noiseFloorFragment == null)
+                        noiseFloorFragment = new NoiseFloorFragment();
+                    return noiseFloorFragment;
+                //return NoiseFloorFragment.newInstance("2", "NoiseFloorFragment"); //new NoiseFloorFragment();
                 case 2: // Fragment # 1 - This will show SecondFragment
-                    return new RoomPurposeFragment();//SecondFragment.newInstance(2, "Page # 3");
+                    if (roomPurposeFragment == null)
+                        roomPurposeFragment = new RoomPurposeFragment();
+                    return roomPurposeFragment;
+                //return new RoomPurposeFragment();//SecondFragment.newInstance(2, "Page # 3");
                 case 3: // Fragment # 1 - This will show SecondFragment
-                    return new RoomSizeFragment();//SecondFragment.newInstance(2, "Page # 3");
+                    if (roomSizeFragment == null)
+                        roomSizeFragment = new RoomSizeFragment();
+                    return roomSizeFragment;
+                //return new RoomSizeFragment();//SecondFragment.newInstance(2, "Page # 3");
                 case 4: // Fragment # 1 - This will show SecondFragment
-                    return new InstallationFragment();//SecondFragment.newInstance(2, "Page # 3");
+                    if (installationFragment == null)
+                        installationFragment = new InstallationFragment();
+                    return installationFragment;
+                //return new InstallationFragment();//SecondFragment.newInstance(2, "Page # 3");
                 case 5: // Fragment # 1 - This will show SecondFragment
-                    return new SpeakerOptionFragment();//SecondFragment.newInstance(2, "Page # 3");
+//                    if (speakerFragment == null)
+//                        speakerFragment = new SpeakerFragment();
+//                    Bundle args = new Bundle();
+//                    args.putAll(args);// SpeakerFragment.paramsData, paramsData);
+//                    speakerFragment.setArguments(args);
+                    return SpeakerFragment.newInstance(paramsData);
+                //return speakerFragment;
+                //return new SpeakerOptionFragment();//SecondFragment.newInstance(2, "Page # 3");
                 case 6: // Fragment # 1 - This will show SecondFragment
-                    return new AmplifiersFragment();//SecondFragment.newInstance(2, "Page # 3");
+                    //return new AmplifiersFragment();//SecondFragment.newInstance(2, "Page # 3");
+                    //if (paramsData.Speaker() > 0)
+                    if (shareFragment == null)
+                        shareFragment = new ShareFragment();
+                    Bundle args = new Bundle();
+                    args.putString(shareFragment.ARG_PARAM1, "Yarden 6-ID"); // paramsData.Speaker());
+                    args.putString(shareFragment.ARG_PARAM2, "");
+                    shareFragment.setArguments(args);
+                    return shareFragment;//ShareFragment.newInstance(paramsData.Speaker(), ""); //"Yarden 6-ID","");
                 default:
                     return null;
             }
         }
 
+
         // Returns the page title for the top indicator
         @Override
         public CharSequence getPageTitle(int position) {
-            return ""+ (position + 1);//"Page " + position;
+            return "" + (position + 1);//"Page " + position;
         }
 
     }
 
-    private String PROVIDER_NAME = "entity.AudioContentProvider";
-    private String URL = "content://" + PROVIDER_NAME +"/TBL_AMP";
-    private Uri SPEAKERS_CONTENT_URI = Uri.parse(URL);
-
     ViewPager pager;
 
-    //FragmentPagerAdapter adapterViewPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        fillTheDB();
+        paramsData = new ParamsData();
+
+        //fillTheDB();
 
         pager = (ScrollerViewPager) findViewById(R.id.view_pager);
         pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
 
         SpringIndicator springIndicator = (SpringIndicator) findViewById(R.id.indicator);
+        //pager.fixScrollSpeed();
         springIndicator.setViewPager(pager);
-
-        pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-            }
-        });
-
-    }
-
-    private void fillTheDB() {
-        ContentValues valuesSpeakers = new ContentValues();
-        valuesSpeakers.put("id", "1");
-        valuesSpeakers.put("name", "psich");
-        valuesSpeakers.put("plenum", "meod");
-
-        getContentResolver().insert(SPEAKERS_CONTENT_URI, valuesSpeakers);
-        getContentResolver().query(SPEAKERS_CONTENT_URI, null,null,null,null);
-
-
 
     }
 
@@ -140,104 +140,69 @@ public class MainActivity extends FragmentActivity implements StartFragment.OnFr
     }
 
     public void gotoNextFragment(View view) {
-         int viewId = view.getId();
+        //  Spinner spinner = (Spinner) findViewById(R.id.spinner_length);
+        // Begin the transaction
+        //FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        int viewId = view.getId();
+        String name = view.getResources().getResourceEntryName(view.getId());//view.getTag().toString();
         switch (viewId) {
             case R.id.start_btn://If start goto noise floor
-                pager.setPageTransformer(true, new ZoomOutPageTransformer());
-
+                // Replace the contents of the container with the new fragment
+                //ft.replace(R.id.fragment_placeholder, adapterViewPager.getItem(2));// new NoiseFloorFragment());//adapterViewPager.getItem(2);
                 pager.setCurrentItem(1);
-              //  SwitchPage(3);
-                Button view1 = (Button ) findViewById(R.id.start_btn);
-                view1.animate().alpha(1f).scaleX(1f).scaleY(1f).setDuration(200L);
                 break;
-
             case R.id.noise_db45://If noise floor goto purpose
             case R.id.noise_db55:
             case R.id.noise_db60:
             case R.id.noise_db65:
             case R.id.noise_db75:
+                //ft.replace(R.id.fragment_placeholder, new RoomPurposeFragment());
+                paramsData.NoiseFloor(Integer.parseInt(name.substring(8, 10)));
                 pager.setCurrentItem(2);
                 break;
             case R.id.pur_5://If purpose goto room size
             case R.id.pur_10:
             case R.id.pur_15:
             case R.id.pur_20:
+                //ft.replace(R.id.fragment_placeholder, new RoomSizeFragment());
+                paramsData.RoomPropose(Integer.parseInt(name.substring(4, 6)));
                 pager.setCurrentItem(3);
                 break;
-            case R.id.next1:
-                pager.setCurrentItem(4);
-                break;
-            case R.id.ins_1:
+            case R.id.ins_1://If purpose goto room size
             case R.id.ins_2:
             case R.id.ins_3:
             case R.id.ins_4:
-              //  pager.setCurrentItem(5);
+                //ft.replace(R.id.fragment_placeholder, new RoomSizeFragment());
+                ImageView btn = (ImageView) findViewById(viewId);
+                paramsData.Installation(btn.getTag().toString());
+                pager.setCurrentItem(5);
+                break;
+
+            case R.id.spk_1://If purpose goto room size
+            case R.id.spk_2:
+                //ft.replace(R.id.fragment_placeholder, new RoomSizeFragment());
+                TextView txt;
+                if (viewId == R.id.spk_1)
+                    txt = (TextView) findViewById(R.id.spk_txt1);
+                else
+                    txt = (TextView) findViewById(R.id.spk_txt2);
+
+                paramsData.Speaker(txt.getText().toString());
+                pager.setCurrentItem(6);
                 break;
         }
         // Complete the changes added above
 //        ft.addToBackStack(null);
 //        ft.commit();
     }
-    static Timer timer = new Timer();
-
-    public void SwitchPage(int seconds)
-    {
-
-        if(timer != null)
-        {
-            timer.cancel();
-        }
-
-        timer = new Timer(); // At this line a new Thread will be created
-
-        timer.schedule(null, 2000, seconds * 2000);
-        // delay in milliseconds
-    }
 
 
-    public void plusClicked(View view)
-    {
-        int id = view.getId();
-        TextView currentText  = (TextView) findViewById(R.id.height_btn);;
-        switch (id) {
-            case R.id.height_plus:
-                currentText = (TextView) findViewById(R.id.height_btn);
-                break;
-            case R.id.width_plus:
-                currentText = (TextView) findViewById(R.id.width_btn);
-                break;
-            case R.id.length_plus:
-                currentText = (TextView) findViewById(R.id.length_btn);
-                break;
-
-        }
-
-        String numText = currentText.getText().toString();
-        int num = Integer.parseInt(numText);
+    public void plusClicked(View view) {
+        TextView mytextview = (TextView) findViewById(R.id.height_btn);
+        int num = Integer.parseInt(mytextview.toString());
         num += 10;
-        currentText.setText(Integer.toString(num));
-    }
-    public void minusClicked(View view)
-    {
-        int id = view.getId();
-        TextView currentText  = (TextView) findViewById(R.id.height_btn);;
-        switch (id) {
-            case R.id.height_minus:
-                currentText = (TextView) findViewById(R.id.height_btn);
-                break;
-            case R.id.width_minus:
-                currentText = (TextView) findViewById(R.id.width_btn);
-                break;
-            case R.id.length_minus:
-                currentText = (TextView) findViewById(R.id.length_btn);
-                break;
-
-        }
-
-        String numText = currentText.getText().toString();
-        int num = Integer.parseInt(numText);
-        if(num > 10)
-            num -= 10;
-        currentText.setText(Integer.toString(num));
+        mytextview.setText(Integer.toString(num));
     }
 }
+
+
