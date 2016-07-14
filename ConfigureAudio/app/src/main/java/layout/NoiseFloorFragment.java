@@ -7,6 +7,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.audio.kramer.configureaudio.R;
@@ -76,13 +79,18 @@ public class NoiseFloorFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_noise_floor, container, false);
+
+        RelativeLayout  view1 = (RelativeLayout ) view.findViewById(R.id.num1);
+         view1.animate().alpha(1f).scaleX(1f).scaleY(1f).setDuration(200L);
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_noise_floor, container, false);
+        return view;//inflater.inflate(R.layout.fragment_noise_floor, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
