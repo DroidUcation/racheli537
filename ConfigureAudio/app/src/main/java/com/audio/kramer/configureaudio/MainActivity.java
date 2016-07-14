@@ -12,6 +12,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.DragEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -35,7 +36,7 @@ import layout.RoomSizeFragment;
 import layout.ShareFragment;
 import layout.SpeakerFragment;
 import layout.StartFragment;
-
+//MainActivity TAMAR
 public class MainActivity extends AppCompatActivity implements StartFragment.OnFragmentInteractionListener ,
         NoiseFloorFragment.OnFragmentInteractionListener , RoomPurposeFragment.OnFragmentInteractionListener , ShareFragment.OnFragmentInteractionListener,
         RoomSizeFragment.OnFragmentInteractionListener , SpeakerFragment.OnFragmentInteractionListener, InstallationFragment.OnFragmentInteractionListener{
@@ -146,6 +147,15 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
         //pager.fixScrollSpeed();
         springIndicator.setViewPager(pager);
 
+//        pager.setOnDragListener(new View.OnDragListener() {
+//        @Override
+//        public boolean onDrag(View view, DragEvent dragEvent) {
+//            Toast.makeText(MainActivity.this, "on drag", Toast.LENGTH_LONG).show();
+//            return true; //we handled the event please don't scroll
+//            //return false;//we don't handle the event user can scroll
+//        }
+//        });
+
 //        // Begin the transaction
 //        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 //        // Replace the contents of the container with the new fragment
@@ -158,6 +168,8 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
 
 
     }
+
+
 //    private void fillTheDB() {
 //        //int cntRowsDel = getContentResolver().delete(SpeakerEntry.CONTENT_URI, null, null);
 //        //String[] mProjection = {"title"};
@@ -427,63 +439,4 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
 //
 //    }
 //
-////
-//    public void plusClicked(View view)
-//    {
-//        TextView mytextview = (TextView) findViewById(R.id.height_btn);
-//        int num = Integer.parseInt(mytextview.toString());
-//        num += 10;
-//        mytextview.setText(Integer.toString(num));
-//    }
-//}
-//
-////    public Fragment getItem(int position) {
-////StartFragment startFragment;
-////    NoiseFloorFragment noiseFloorFragment;
-////    RoomPurposeFragment roomPurposeFragment;
-////    RoomSizeFragment roomSizeFragment;
-////    InstallationFragment installationFragment;
-////    SpeakerFragment speakerFragment;
-////    ShareFragment shareFragment;
-////    AmplifiersFragment amplifiersFragment;
-////        switch (position) {
-////            case 0: // Fragment # 0 - This will show FirstFragment different title
-////                if (startFragment == null)
-////                    startFragment = new StartFragment();
-////                return startFragment;
-////            case 1:
-////                if (noiseFloorFragment == null)
-////                    noiseFloorFragment = new NoiseFloorFragment();
-////                return noiseFloorFragment;
-////            //return NoiseFloorFragment.newInstance("2", "NoiseFloorFragment"); //new NoiseFloorFragment();
-////            case 2: // Fragment # 1 - This will show SecondFragment
-////                if (roomPurposeFragment == null)
-////                    roomPurposeFragment = new RoomPurposeFragment();
-////                return roomPurposeFragment;
-////            //return new RoomPurposeFragment();//SecondFragment.newInstance(2, "Page # 3");
-////            case 3: // Fragment # 1 - This will show SecondFragment
-////                if (roomSizeFragment == null)
-////                    roomSizeFragment = new RoomSizeFragment();
-////                return roomSizeFragment;
-////            //return new RoomSizeFragment();//SecondFragment.newInstance(2, "Page # 3");
-////            case 4: // Fragment # 1 - This will show SecondFragment
-////                if (installationFragment == null)
-////                    installationFragment = new InstallationFragment();
-////                return installationFragment;
-////            //return new InstallationFragment();//SecondFragment.newInstance(2, "Page # 3");
-////            case 5: // Fragment # 1 - This will show SecondFragment
-////                if (speakerFragment == null)
-////                    speakerFragment = new SpeakerFragment();
-////                return SpeakerFragment.newInstance(paramsData);
-////            //return speakerFragment;
-////            //return new SpeakerOptionFragment();//SecondFragment.newInstance(2, "Page # 3");
-////            case 6: // Fragment # 1 - This will show SecondFragment
-////                //return new AmplifiersFragment();//SecondFragment.newInstance(2, "Page # 3");
-////                //if (paramsData.NoiseFloor() > 0)
-////                if (shareFragment == null)
-////                    shareFragment = new ShareFragment();
-////                return shareFragment;
-////            default:
-////                return null;
-////        }
-////    }
+
