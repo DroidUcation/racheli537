@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Spinner;
 
 import android.view.View;
@@ -27,6 +28,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import entity.AudioCursorAdapter;
 import entity.ParamsData;
 import entity.Speaker;
 import entity.entries.DatabaseContract;
@@ -49,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
         , InstallationFragment.OnFragmentInteractionListener {
 
 
-    public String nameSpeaker ="";
+    //public String nameSpeaker ="";
     public ParamsData paramsData;
 
 //    public static class MyPagerAdapter extends FragmentPagerAdapter {
@@ -103,25 +105,25 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
 //                    return installationFragment;
 //                //return new InstallationFragment();//SecondFragment.newInstance(2, "Page # 3");
 //                case 5: // Fragment # 1 - This will show SecondFragment
-////                    if (speakerFragment == null)
-////                        speakerFragment = new SpeakerFragment();
+//                    if (speakerFragment == null)
+//                        speakerFragment = new SpeakerFragment();
 ////                    Bundle args = new Bundle();
 ////                    args.putAll(args);// SpeakerFragment.paramsData, paramsData);
-////                    speakerFragment.setArguments(args);
-//                    return SpeakerFragment.newInstance(paramsData);
+//                    //speakerFragment.setArguments(args);
+//                    return speakerFragment;//SpeakerFragment.newInstance(paramsData);
 //                //return speakerFragment;
 //                //return new SpeakerOptionFragment();//SecondFragment.newInstance(2, "Page # 3");
 //                case 6: // Fragment # 1 - This will show SecondFragment
 //                    //return new AmplifiersFragment();//SecondFragment.newInstance(2, "Page # 3");
 //                    //if (paramsData.Speaker() > 0)
-//                    if (shareFragment == null)
-//                        shareFragment = new ShareFragment();
-//                    Bundle args = new Bundle();
-//
-//                    args.putString(shareFragment.ARG_PARAM1,"Yarden 6-ID"); // paramsData.Speaker());
-//                    args.putString(shareFragment.ARG_PARAM2, "");
-//                    shareFragment.setArguments(args);
-//                    return shareFragment;//ShareFragment.newInstance(paramsData.Speaker(), ""); //"Yarden 6-ID","");
+////                    if (shareFragment == null)
+////                        shareFragment = new ShareFragment();
+////                    Bundle args = new Bundle();
+////
+////                    args.putString(shareFragment.ARG_PARAM1,"Yarden 6-ID"); // paramsData.Speaker());
+////                    args.putString(shareFragment.ARG_PARAM2, "");
+//                    //shareFragment.setArguments(args);
+//                    return new ShareFragment();//ShareFragment.newInstance(paramsData.Speaker(), ""); //"Yarden 6-ID","");
 //                default:
 //                    return null;
 //            }
@@ -200,20 +202,24 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
         pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-//                if (position == 6) { //check sdot chova kan
-//                    nameSpeaker = paramsData.Speaker();
-//                    ShareFragment shareFragment = new ShareFragment();
-//                }
 
             }
 
             @Override
             public void onPageSelected(int position) {
-
+                switch (position) {
+                    case 5:
+                        getSpeakersData();
+                        break;
+                    case 6:
+                        getDataShare();
+                        break;
+                }
             }
 
             @Override
             public void onPageScrollStateChanged(int state) {
+
             }
         });
     }
@@ -242,6 +248,159 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
         adapter.addFragment(speakerFragment, "6");//"Speakers");
         adapter.addFragment(shareFragment, "7");//"Share");
         viewPager.setAdapter(adapter);
+    }
+
+    private void getDataShare() {
+        Cursor cursor;
+        try {
+            String[] projection =  {SpeakerEntry.ID, SpeakerEntry.PORT_NUMBER, SpeakerEntry.NAME, SpeakerEntry.DESCRIPTION}; //"aaa description", "123 port_number"};
+            String selection = SpeakerEntry.NAME + " = ? ";
+            String[] strArgs = {paramsData.Speaker()};
+            Uri uri = DatabaseContract.BASE_CONTENT_URI.buildUpon().appendPath(DatabaseContract.PATH_SPEAKER_FILTER).build();
+            cursor = getContentResolver().query(SpeakerEntry.CONTENT_URI, projection, selection, strArgs, null);
+            if (cursor.getCount() > 0) {
+                AudioCursorAdapter customAdapter = new AudioCursorAdapter(this, cursor);
+                ListView listView = (ListView) findViewById(R.id.list_data);
+                listView.setAdapter(customAdapter);
+                //cursor.close();
+            }
+        }
+        catch (Exception e) {
+            e.getStackTrace();
+            Log.e("Message err", e.getMessage());
+        }
+    }
+
+    private void getSpeakersData() {
+        try {
+//            paramsData.Installation(SpeakerEntry.INSTALLATION_CEILING_TILE);
+//            paramsData.High(8);
+
+            String strFilterInches = "";
+            if (paramsData.Installation() == SpeakerEntry.INSTALLATION_CEILING || paramsData.Installation() == SpeakerEntry.INSTALLATION_CEILING_TILE) {
+                if (paramsData.High() <= 3)
+                    strFilterInches = "4";
+                else if (paramsData.High() > 3 && paramsData.High() <= 5)
+                    strFilterInches = "6.5";
+                else if (paramsData.High() > 5)// && paramsData.High() <= 8)
+                    strFilterInches = "8";
+            } else {
+                if (paramsData.Width() <= 3)
+                    strFilterInches = "4";
+                else if (paramsData.Width() > 3 && paramsData.Width() <= 5)
+                    strFilterInches = "5.25";
+                else if (paramsData.Width() > 5)
+                    strFilterInches = "6.5";
+            }
+
+            String[] strArgs = {paramsData.Installation(), strFilterInches};
+            Uri uri = DatabaseContract.BASE_CONTENT_URI.buildUpon().appendPath(DatabaseContract.PATH_SPEAKER_FILTER).build();
+            Cursor cursor = getContentResolver().query(uri, null, null, strArgs, SpeakerEntry.QUALITY); ////SPEAKERS_CONTENT_URI
+
+            int flag = 0;
+            //if (cursor.getCount() > 0)
+            if (cursor.moveToFirst()) {
+                while (!cursor.isAfterLast() && flag < 2) { // If you use c.moveToNext() here, you will bypass the first row, which is WRONG
+                    flag++;
+                    //String strDescription = cursor.getString(cursor.getColumnIndexOrThrow(SpeakerEntry.INCHES)) + "-Inch, " + cursor.getString(cursor.getColumnIndexOrThrow(SpeakerEntry.INSTALLATION)) + " Speakers";
+                    if (flag == 1) {
+                        TextView txt1 = (TextView) findViewById(R.id.spk_txt1);
+                        txt1.setText(cursor.getString(cursor.getColumnIndexOrThrow(SpeakerEntry.NAME)));
+                        txt1.setVisibility(View.VISIBLE);
+                        TextView txt11 = (TextView) findViewById(R.id.spk_txt11);
+                        txt11.setText(cursor.getString(cursor.getColumnIndexOrThrow(SpeakerEntry.DESCRIPTION)));
+                        txt11.setVisibility(View.VISIBLE);
+                        Button btn1 = (Button) findViewById(R.id.spk_1);
+                        btn1.setText("Comercial");
+                        btn1.setVisibility(View.VISIBLE);
+                        switch (paramsData.Installation()) {
+                            case SpeakerEntry.INSTALLATION_CEILING_TILE:
+                                btn1.setBackground(getResources().getDrawable(R.drawable.ceiling_tile_hp));
+                                btn1.setText("High Performance");
+                                break;
+                            case SpeakerEntry.INSTALLATION_CEILING:
+                                btn1.setBackground(getResources().getDrawable(R.drawable.ceiling_com));
+                                break;
+                            case SpeakerEntry.INSTALLATION_ON_WALL:
+                                btn1.setBackground(getResources().getDrawable(R.drawable.on_wall_com));
+                                break;
+                            case SpeakerEntry.INSTALLATION_IN_WALL:
+                                btn1.setBackground(getResources().getDrawable(R.drawable.in_wall_com));
+                                break;
+                            default:
+                                break;
+                        }
+                    } else if (flag == 2) {
+                        TextView txt1 = (TextView) findViewById(R.id.spk_txt2);
+                        txt1.setText(cursor.getString(cursor.getColumnIndexOrThrow(SpeakerEntry.NAME)));
+                        txt1.setVisibility(View.VISIBLE);
+                        TextView txt11 = (TextView) findViewById(R.id.spk_txt22);
+                        txt11.setText(cursor.getString(cursor.getColumnIndexOrThrow(SpeakerEntry.DESCRIPTION)));
+                        txt11.setVisibility(View.VISIBLE);
+                        Button btn2 = (Button) findViewById(R.id.spk_2);
+                        btn2.setText("High Performance");
+                        btn2.setVisibility(View.VISIBLE);
+                        switch (paramsData.Installation()) {
+//                        case SpeakerEntry.INSTALLATION_CEILING_TILE:
+//                            btn2.setBackground(getResources().getDrawable(R.drawable.ceiling_tile_hp));
+//                            break;
+                            case SpeakerEntry.INSTALLATION_CEILING:
+                                btn2.setBackground(getResources().getDrawable(R.drawable.ceiling_hp));
+                                break;
+                            case SpeakerEntry.INSTALLATION_ON_WALL:
+                                btn2.setBackground(getResources().getDrawable(R.drawable.on_wall_hp));
+                                break;
+                            case SpeakerEntry.INSTALLATION_IN_WALL:
+                                btn2.setBackground(getResources().getDrawable(R.drawable.in_wall_hp));
+                                break;
+                            default:
+                                break;
+                        }
+
+                    }
+                    cursor.moveToNext();
+                }
+
+                if (flag < 2) { //paramsData.Installation() == SpeakerEntry.INSTALLATION_CEILING_TILE) {
+                    Button btn2 = (Button) findViewById(R.id.spk_2);
+                    btn2.setVisibility(View.GONE);
+                    TextView txt2 = (TextView) findViewById(R.id.spk_txt2);
+                    txt2.setVisibility(View.GONE);
+                    TextView txt22 = (TextView) findViewById(R.id.spk_txt22);
+                    txt22.setVisibility(View.GONE);
+                    //Toast.makeText(getActivity(),"Text!",Toast.LENGTH_SHORT).show();
+                }
+                cursor.close();
+            }
+            else
+            {//no found speakers
+                TextView txt1 = (TextView) findViewById(R.id.spk_txt1);
+                txt1.setVisibility(View.GONE);
+                txt1.setText("");
+                TextView txt11 = (TextView) findViewById(R.id.spk_txt11);
+                txt11.setVisibility(View.GONE);
+                Button btn1 = (Button) findViewById(R.id.spk_1);
+                btn1.setVisibility(View.GONE);
+                Button btn2 = (Button) findViewById(R.id.spk_2);
+                btn2.setVisibility(View.GONE);
+                TextView txt2 = (TextView) findViewById(R.id.spk_txt2);
+                txt2.setVisibility(View.GONE);
+                txt2.setText("");
+                TextView txt22 = (TextView) findViewById(R.id.spk_txt22);
+                txt22.setVisibility(View.GONE);
+
+            }
+
+        }
+
+        catch (Exception e) {
+            e.getStackTrace();
+            Log.e("Message err", e.getMessage());
+        }
+//        finally{
+//            if(cursor != null && !cursor.isClosed()){
+//                cursor.close();
+//            }
     }
 
 //    private void fillTheDB() {
@@ -326,9 +485,8 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
             case R.id.ins_4:
                 ImageView btn = (ImageView) findViewById(viewId);
                 paramsData.Installation(btn.getTag().toString());
-                //SpeakerFragment spk = new SpeakerFragment();
+                //getSpeakersData();
                 pager.setCurrentItem(5, true);
-                //pager.setCurrentItem(5);
                 break;
 
             case R.id.spk_1://If purpose goto room size
@@ -341,8 +499,7 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
                     txt = (TextView) findViewById(R.id.spk_txt2);
 
                 paramsData.Speaker(txt.getText().toString());
-                nameSpeaker = paramsData.Speaker();
-                //ShareFragment shareFragment = new ShareFragment();
+                //getDataShare();
                 pager.setCurrentItem(6, true);
                 break;
 

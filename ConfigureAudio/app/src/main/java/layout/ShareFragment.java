@@ -76,12 +76,12 @@ public class ShareFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        nameSpeaker  = ((MainActivity)getActivity()).nameSpeaker;
+        //nameSpeaker  = ((MainActivity)getActivity()).nameSpeaker;
         // Inflate the layout for this fragment
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_share, container, false);
         this.mView = view;
-        getData();
+//        getData();
         return mView;//inflater.inflate(R.layout.fragment_speaker, container, false);
     }
 

@@ -82,10 +82,10 @@ public class SpeakerFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         super.onCreateView(inflater, container, savedInstanceState);
-        paramsData = ((MainActivity)getActivity()).paramsData;
+        //paramsData = ((MainActivity)getActivity()).paramsData;
         View view = inflater.inflate(R.layout.fragment_speaker, container, false);
         this.mView = view;
-        getSpeakers();
+//        getSpeakers();
         return mView;//inflater.inflate(R.layout.fragment_speaker, container, false);
     }
 
