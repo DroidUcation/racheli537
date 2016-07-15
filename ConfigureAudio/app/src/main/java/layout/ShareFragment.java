@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.audio.kramer.configureaudio.MainActivity;
 import com.audio.kramer.configureaudio.R;
 
 import entity.AudioCursorAdapter;
@@ -25,7 +26,7 @@ import entity.entries.SpeakerEntry;
  * Activities that contain this fragment must implement the
  * {@link ShareFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link ShareFragment#newInstance} factory method to
+ * Use the {@link ShareFragment//#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class ShareFragment extends Fragment {
@@ -53,28 +54,29 @@ public class ShareFragment extends Fragment {
      * @return A new instance of fragment ShareFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ShareFragment newInstance(String nameSpeaker, String nameAmplifire) {
-        ShareFragment fragment = new ShareFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, nameSpeaker);
-        args.putString(ARG_PARAM2, nameAmplifire);
-        fragment.setArguments(args);
-        return fragment;
-    }
+//    public static ShareFragment newInstance(String nameSpeaker, String nameAmplifire) {
+//        ShareFragment fragment = new ShareFragment();
+//        Bundle args = new Bundle();
+//        args.putString(ARG_PARAM1, nameSpeaker);
+//        args.putString(ARG_PARAM2, nameAmplifire);
+//        fragment.setArguments(args);
+//        return fragment;
+//    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            nameSpeaker = getArguments().getString(ARG_PARAM1);
-            nameAmplifire = getArguments().getString(ARG_PARAM2);
-        }
+//        if (getArguments() != null) {
+//            nameSpeaker = getArguments().getString(ARG_PARAM1);
+//            nameAmplifire = getArguments().getString(ARG_PARAM2);
+//        }
     }
 
     protected View mView;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        nameSpeaker  = ((MainActivity)getActivity()).nameSpeaker;
         // Inflate the layout for this fragment
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_share, container, false);
