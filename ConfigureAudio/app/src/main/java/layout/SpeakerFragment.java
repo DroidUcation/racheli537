@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.audio.kramer.configureaudio.MainActivity;
 import com.audio.kramer.configureaudio.R;
 
 import entity.ParamsData;
@@ -25,7 +26,7 @@ import entity.entries.SpeakerEntry;
  * Activities that contain this fragment must implement the
  * {@link SpeakerFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link SpeakerFragment#newInstance} factory method to
+ * Use the {@link SpeakerFragment//#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class SpeakerFragment extends Fragment {
@@ -52,17 +53,17 @@ public class SpeakerFragment extends Fragment {
           * @return A new instance of fragment SpeakerFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static SpeakerFragment newInstance(ParamsData paramsDataArg) {
-
-        SpeakerFragment fragment = new SpeakerFragment();
-        paramsData = paramsDataArg;
-
-//        Bundle args = new Bundle();
-//        args.putAll(ARG_PARAM1, paramsData);
-//        args.putString(ARG_PARAM2, param2);
-        //fragment.setArguments(args);
-        return fragment;
-    }
+//    public static SpeakerFragment newInstance(ParamsData paramsDataArg) {
+//
+//        SpeakerFragment fragment = new SpeakerFragment();
+//        paramsData = paramsDataArg;
+//
+////        Bundle args = new Bundle();
+////        args.putAll(ARG_PARAM1, paramsData);
+////        args.putString(ARG_PARAM2, param2);
+//        //fragment.setArguments(args);
+//        return fragment;
+//    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -81,10 +82,16 @@ public class SpeakerFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         super.onCreateView(inflater, container, savedInstanceState);
+        //paramsData = ((MainActivity)getActivity()).paramsData;
         View view = inflater.inflate(R.layout.fragment_speaker, container, false);
         this.mView = view;
-        getSpeakers();
+//        getSpeakers();
         return mView;//inflater.inflate(R.layout.fragment_speaker, container, false);
+    }
+
+    //@Override
+    public void onShowedFragment(Context context) {
+        paramsData = ((MainActivity)getActivity()).paramsData;
     }
 
     private void getSpeakers() {
