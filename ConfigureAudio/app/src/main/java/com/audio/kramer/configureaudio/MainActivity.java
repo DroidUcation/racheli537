@@ -4,6 +4,8 @@ package com.audio.kramer.configureaudio;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Color;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -23,6 +25,10 @@ import android.widget.Spinner;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
 import entity.ParamsData;
 import entity.Speaker;
 import entity.entries.DatabaseContract;
@@ -231,7 +237,7 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
     public void onFragmentInteraction(Uri uri) {
 
     }
-
+    Button myButton;
     public void gotoNextFragment(View view) {
         //  Spinner spinner = (Spinner) findViewById(R.id.spinner_length);
         // Begin the transaction
@@ -240,18 +246,33 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
         String name = view.getResources().getResourceEntryName(view.getId());//view.getTag().toString();
         switch (viewId) {
             case R.id.start_btn://If start goto noise floor
-                // Replace the contents of the container with the new fragment
-                //ft.replace(R.id.fragment_placeholder, adapterViewPager.getItem(2));// new NoiseFloorFragment());//adapterViewPager.getItem(2);
-                pager.setCurrentItem(1);
+                Timer t = new Timer();
+                t.schedule(new TimerTask() {
+
+                    @Override
+                    public void run() {
+                        runOnUiThread(new Runnable() {
+
+                            @Override
+                            public void run() {
+                                pager.setCurrentItem(1);
+                            }
+                        });
+                    }
+                }, 200);
+
                 break;
             case R.id.noise_db45://If noise floor goto purpose
             case R.id.noise_db55:
             case R.id.noise_db60:
             case R.id.noise_db65:
             case R.id.noise_db75:
+                pager.setCurrentItem(1);
+
                 //ft.replace(R.id.fragment_placeholder, new RoomPurposeFragment());
                 paramsData.NoiseFloor(Integer.parseInt(name.substring(8,10)));
-                pager.setCurrentItem(2);
+              //  pager.postDelayed(pager.setCurrentItem(2),5000);
+
                 break;
             case R.id.pur_5://If purpose goto room size
             case R.id.pur_10:
@@ -264,6 +285,9 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
                     paramsData.RoomPropose(Integer.parseInt(name.substring(4,6)));
 
                 pager.setCurrentItem(3);
+                break;
+            case R.id.next1:
+                pager.setCurrentItem(4);
                 break;
             case R.id.ins_1://If purpose goto room size
             case R.id.ins_2:
@@ -292,12 +316,51 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
 //        ft.commit();
     }
 
-    public void plusClicked(View view) {
+    public void plusClicked(View view)
+    {
+        int id = view.getId();
+        TextView currentText  = (TextView) findViewById(R.id.height_btn);;
+        switch (id) {
+            case R.id.height_plus:
+                currentText = (TextView) findViewById(R.id.height_btn);
+                break;
+            case R.id.width_plus:
+                currentText = (TextView) findViewById(R.id.width_btn);
+                break;
+            case R.id.length_plus:
+                currentText = (TextView) findViewById(R.id.length_btn);
+                break;
 
-        TextView mytextview = (TextView) findViewById(R.id.height_btn);
-        int num = Integer.parseInt(mytextview.toString());
+        }
+
+        String numText = currentText.getText().toString();
+        int num = Integer.parseInt(numText);
         num += 10;
-        mytextview.setText(Integer.toString(num));
+        currentText.setText(Integer.toString(num));
+    }
+    public void minusClicked(View view)
+    {
+        int id = view.getId();
+        TextView currentText  = (TextView) findViewById(R.id.height_btn);;
+        switch (id) {
+            case R.id.height_minus:
+                currentText = (TextView) findViewById(R.id.height_btn);
+                break;
+            case R.id.width_minus:
+                currentText = (TextView) findViewById(R.id.width_btn);
+                break;
+            case R.id.length_minus:
+                currentText = (TextView) findViewById(R.id.length_btn);
+                break;
+
+        }
+
+        String numText = currentText.getText().toString();
+        int num = Integer.parseInt(numText);
+        if(num > 10)
+            num -= 10;
+        currentText.setText(Integer.toString(num));
     }
 }
+
 
