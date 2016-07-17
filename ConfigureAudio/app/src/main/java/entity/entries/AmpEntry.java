@@ -14,9 +14,9 @@ public class AmpEntry {
     public  static final String CONTROL = "control";
     public  static final String MAX_SPEAKERS = "max_speakers";
     public  static final String INPUT = "input";
-//    public  static final String DESCRIPTION = "description";
-//    public  static final String PORT_NUMBER = "port_number";
-
+    public  static final String SPECIAL = "special";
+    public  static final String DESCRIPTION = "description";
+    public  static final String PORT_NUMBER = "port_number";
     //DATA
 //    public  static final String QUALITY_HP = "hp";
 //    public  static final String QUALITY_COM = "comercial";

@@ -11,7 +11,7 @@ public class ParamsData {
     private int high;
     private String installation;
     private String speaker;
-    private int amplifier;
+    private String amplifier;
 
     public ParamsData()
     {}
@@ -80,11 +80,11 @@ public class ParamsData {
 //        this.speaker = id;
 //    }
 
-    public int Amplifier() {
+    public String Amplifier() {
         return amplifier;
     }
 
-    public void Amplifier(int id) {
-        this.amplifier = id;
+    public void Amplifier(String amplifier) {
+        this.amplifier = amplifier;
     }
 }

@@ -23,13 +23,6 @@
             android:gravity="center"
             android:orientation="vertical"
             >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/amp_txt1"
-                style="@style/TitleFont"
-                />
-
             <Button android:layout_height="@dimen/rect"
                 android:layout_width="wrap_content"
                 android:minWidth="90dp"
@@ -42,10 +35,26 @@
                 />
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/amp_txt1"
+                style="@style/TitleFont"
+                android:text="a"
+                />
+
+            <TextView
                 android:layout_width="220dp"
                 android:layout_height="wrap_content"
-                android:text="aaaaaaa"
+                android:text="aa"
                 android:id="@+id/amp_txt11"
+                android:gravity="center"
+                />
+
+            <TextView
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:text="aaa"
+                android:id="@+id/amp_txt111"
                 android:gravity="center"
                 />
         </LinearLayout>
@@ -69,12 +78,20 @@
                 android:layout_height="wrap_content"
                 android:text="b"
                 android:id="@+id/amp_txt2"
-                style="@style/TitleFont"/>
+                style="@style/TitleFont"
+                android:gravity="center"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="b"
+                android:text="bb"
                 android:id="@+id/amp_txt22"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="bbb"
+                android:id="@+id/amp_txt222"
                 />
         </RelativeLayout>
         <RelativeLayout
@@ -95,14 +112,20 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="b"
+                android:text="c"
                 android:id="@+id/amp_txt3"
                 style="@style/TitleFont"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="b"
+                android:text="cc"
                 android:id="@+id/amp_txt33"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ccc"
+                android:id="@+id/amp_txt333"
                 />
         </RelativeLayout>
     </RelativeLayout>

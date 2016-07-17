@@ -10,7 +10,7 @@
     <string name="purpose_ttl">What is the room used for?</string>
     <string name="speakerOption_ttl">Select a speaker option.</string>
     <string name="installation_ttl">How will the speakers be installed?</string>
-    <string name="amplifiers_ttl">How will the speakers be installed?</string>
+    <string name="amplifiers_ttl">Select an amplifier option.</string>
     <string name="share_ttl">Configuration is complete.</string>
     <string name="share_txt">View quotation of our recommended equipment.  Click Share to email your quotation.</string>
     <string name="noise_1">Boardroom / Residential</string>
