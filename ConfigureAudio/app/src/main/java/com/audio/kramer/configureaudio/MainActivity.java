@@ -24,6 +24,7 @@ import android.widget.Spinner;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -182,14 +183,7 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
         SpringIndicator springIndicator = (SpringIndicator) findViewById(R.id.indicator);
         //pager.fixScrollSpeed();
         springIndicator.setViewPager(pager);
-//        pager.setOnDragListener(new View.OnDragListener() {
-//        @Override
-//        public boolean onDrag(View view, DragEvent dragEvent) {
-//            Toast.makeText(MainActivity.this, "on drag", Toast.LENGTH_LONG).show();
-//            return true; //we handled the event please don't scroll
-//            //return false;//we don't handle the event user can scroll
-//        }
-//        });
+
 
 //        // Begin the transaction
 //        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -219,9 +213,17 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
 
             @Override
             public void onPageScrollStateChanged(int state) {
-
             }
         });
+
+//        pager.setOnDragListener(new View.OnDragListener() {
+//            @Override
+//            public boolean onDrag(View view, DragEvent dragEvent) {
+//                Toast.makeText(MainActivity.this, "on drag", Toast.LENGTH_LONG).show();
+//                return true; //we handled the event please don't scroll
+//                //return false;//we don't handle the event user can scroll
+//            }
+//        });
     }
 
 
@@ -534,7 +536,7 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
 
         String numText = currentText.getText().toString();
         int num = Integer.parseInt(numText);
-        num += 10;
+        num += 1;
         currentText.setText(Integer.toString(num));
     }
     public void minusClicked(View view)
@@ -557,7 +559,7 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
         String numText = currentText.getText().toString();
         int num = Integer.parseInt(numText);
         if(num > 10)
-            num -= 10;
+            num -= 1;
         currentText.setText(Integer.toString(num));
     }
 }

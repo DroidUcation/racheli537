@@ -7,6 +7,8 @@ import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
+import entity.entries.AmpEntry;
 import entity.entries.SpeakerEntry;
 
 /**
@@ -32,7 +34,7 @@ public class DbHelperAudio extends SQLiteOpenHelper {
         super.onOpen(db);
         Log.d("a", "in on open SQLiteOpenHelper");
         //remove
-        //onUpgrade(db, 1, 2);
+        onUpgrade(db, 1, 2);
         onCreate(db);
     }
 
@@ -54,18 +56,27 @@ public class DbHelperAudio extends SQLiteOpenHelper {
                         + SpeakerEntry.PORT_NUMBER + " TEXT"
                         + ")";
 
-//        String CREATE_AMP_TABLE = "CREATE TABLE " + TBL_AMP + "("
-//                + AMP_ID + " INTEGER," + AMP_NAME + " TEXT,"
-//                + AMP_PLENUM + " TEXT" + ")";
+        String CREATE_AMP_TABLE =
+                "CREATE TABLE IF NOT EXISTS " + AmpEntry.TBL_AMP + "("
+                //+ SpeakerEntry.ID + " INTEGER,"
+                + AmpEntry.ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + AmpEntry.NAME + " TEXT,"
+                + AmpEntry.POWER + " TEXT,"
+                + AmpEntry.CONTROL + " TEXT,"
+                + AmpEntry.MAX_SPEAKERS + " INTEGER,"
+                + AmpEntry.INPUT + " INTEGER"
+                + ")";
+
         db.execSQL(CREATE_SPEAKERS_TABLE);
-        //db.execSQL(CREATE_AMP_TABLE);
+        db.execSQL(CREATE_AMP_TABLE);
 
         // init data
         if (getCountRowsTable(db, SpeakerEntry.TBL_SPEAKERS) <= 0)
             insertSpeakersData(db);
-//            insertAmplifiersData(db);
-//        long intCnt = getCountRowsTable(db, SpeakerEntry.TBL_SPEAKERS);
-
+        if (getCountRowsTable(db, AmpEntry.TBL_AMP) <= 0)
+            insertAmpData(db);
+        long intCnt = getCountRowsTable(db, AmpEntry.TBL_AMP);
+        intCnt = getCountRowsTable(db, SpeakerEntry.TBL_SPEAKERS);
     }
 
     private long getCountRowsTable(SQLiteDatabase db, String tblName) {
@@ -79,7 +90,7 @@ public class DbHelperAudio extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Drop older table if existed
         db.execSQL("DROP TABLE IF EXISTS " + SpeakerEntry.TBL_SPEAKERS);
-        //db.execSQL("DROP TABLE IF EXISTS " + TBL_AMP);
+        db.execSQL("DROP TABLE IF EXISTS " + AmpEntry.TBL_AMP);
         // Creating tables again
         //onCreate(db);
     }
@@ -371,6 +382,40 @@ public class DbHelperAudio extends SQLiteOpenHelper {
         values.put(SpeakerEntry.PORT_NUMBER, "60-000069");
         // insert row
         db.insert(SpeakerEntry.TBL_SPEAKERS, null, values);
+    }
+
+    private void insertAmpData(SQLiteDatabase db) {
+        ContentValues values = new ContentValues();
+        values.put(AmpEntry.ID, 1493);
+        values.put(AmpEntry.NAME, "900N");
+        values.put(AmpEntry.POWER, "2*10");
+        values.put(AmpEntry.CONTROL, "N");
+        values.put(AmpEntry.MAX_SPEAKERS, 8);
+        values.put(AmpEntry.INPUT, 2);
+        // insert row
+        db.insert(AmpEntry.TBL_AMP, null, values);
+
+        values.clear();
+        values.put(AmpEntry.ID, 1655);
+        values.put(AmpEntry.NAME, "900xl");
+        values.put(AmpEntry.POWER, "2*10");
+        values.put(AmpEntry.CONTROL, "Y");
+        values.put(AmpEntry.MAX_SPEAKERS, 8);
+        values.put(AmpEntry.INPUT, 2);
+        // insert row
+        db.insert(AmpEntry.TBL_AMP, null, values);
+
+//        ID	Name 	Power	Control	Max speakers	Input#
+//        1493	900N	2*10	n	8	2
+//        1655	900xl	2*10	y	8	2
+//        1492	907	2*40	n	8	1
+//        1686	908	2*40	y	8	2
+//        2841	914	2*100	n	8	1
+//        2647	905xl	2*110	y	8	2
+//        50	903	2*10	n	8	4
+//        2399	907xl	2*40	n	8	2
+//        2842	920	1*200	n	~	4
+
     }
 }
 
