@@ -49,32 +49,38 @@
                 android:gravity="center"
                 />
         </LinearLayout>
-        <RelativeLayout
-            android:layout_marginTop="270dp"
+        <LinearLayout
+            android:layout_marginLeft="90dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="130dp">
+            android:minWidth="70dp"
+            android:layout_marginTop="270dp"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/spk_txt2"
+                style="@style/TitleFont"
+                android:layout_marginTop="2dp"
+                />
             <Button android:layout_height="@dimen/rect"
-                android:layout_width="@dimen/rect"
-                android:text="@string/noise_2"
+                android:layout_width="wrap_content"
+                android:minWidth="90dp"
                 android:id="@+id/spk_2"
+                android:paddingTop="27dp"
+                android:text="@string/noise_1"
                 android:onClick="gotoNextFragment"
                 android:gravity="bottom"
-                android:layout_marginLeft="20dp"
+                android:textColor="@color/topBottomBar"
                 />
-
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="220dp"
                 android:layout_height="wrap_content"
-                android:text="b"
-                android:id="@+id/spk_txt2"
-                style="@style/TitleFont"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="b"
+                android:text="aaaaaaa"
                 android:id="@+id/spk_txt22"
+                android:gravity="center"
                 />
-        </RelativeLayout>
+        </LinearLayout>
     </RelativeLayout>
 </FrameLayout>
