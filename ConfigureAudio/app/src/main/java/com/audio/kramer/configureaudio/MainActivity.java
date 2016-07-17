@@ -738,7 +738,7 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
 
         String numText = currentText.getText().toString();
         int num = Integer.parseInt(numText);
-        if(num > 10)
+        if(num > 0)
             num -= 1;
         currentText.setText(Integer.toString(num));
     }
