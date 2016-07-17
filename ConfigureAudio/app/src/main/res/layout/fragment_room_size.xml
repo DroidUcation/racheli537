@@ -2,13 +2,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="layout.RoomSizeFragment">
+    tools:context="layout.RoomSizeFragment"
+    android:background="@color/allBG">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Indicate the approximate room size."
+            style="@style/TitleFont"
+            android:paddingTop="20dp"
+            android:paddingLeft="20dp"/>/>
         <LinearLayout
             android:paddingLeft="30dp"
             android:layout_marginTop="30dp"
@@ -18,7 +26,7 @@
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:background="@color/button_bg"
+                android:background="@drawable/border"
                 android:src="@mipmap/heigth"
                 />
             <LinearLayout
@@ -33,28 +41,34 @@
                     android:text="Roon Height"
                     android:textSize="40px"/>
                 <LinearLayout
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:background="@android:color/white">
 
                     <Button
                         android:layout_width="50dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:text="-"
                         android:id="@+id/height_minus"
-                        android:onClick="minusClicked"/>
+                        android:onClick="minusClicked"
+                        android:background="@drawable/border_red_content"
+                        />
                     <TextView
                         android:id="@+id/height_btn"
                         android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="33dp"
-                        android:text="10"/>
+                        android:layout_height="50dp"
+                        android:text="10"
+                        android:gravity="center"
+                        />
                     <Button
                         android:id="@+id/height_plus"
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:text="+"
                         android:onClick="plusClicked"
+                        android:background="@drawable/border_red_content"
                         />
                 </LinearLayout>
 
@@ -70,7 +84,7 @@
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:background="@color/button_bg"
+                android:background="@drawable/border"
                 android:src="@mipmap/width"
                 />
             <LinearLayout
@@ -87,24 +101,27 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:background="@android:color/white">
 
                     <Button
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:text="-"
+                        android:background="@drawable/border_red_content"
                         android:id="@+id/width_minus"
                         android:onClick="minusClicked" />
                     <TextView
                         android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="33dp"
+                        android:layout_height="50dp"
                         android:text="10"
+                        android:gravity="center"
                         android:id="@+id/width_btn"/>
                     <Button
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:text="+"
+                        android:background="@drawable/border_red_content"
                         android:id="@+id/width_plus"
                         android:onClick="plusClicked"/>
                 </LinearLayout>
@@ -121,7 +138,7 @@
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:background="@color/button_bg"
+                android:background="@drawable/border"
                 android:src="@mipmap/length"
                 />
             <LinearLayout
@@ -138,9 +155,11 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:background="@android:color/white">
 
                     <Button
+                        android:background="@drawable/border_red_content"
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:text="-"
@@ -148,11 +167,12 @@
                         android:onClick="minusClicked"/>
                     <TextView
                         android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="33dp"
+                        android:layout_height="50dp"
                         android:text="10"
+                        android:gravity="center"
                         android:id="@+id/length_btn"/>
                     <Button
+                        android:background="@drawable/border_red_content"
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:text="+"
@@ -165,8 +185,7 @@
 
         </LinearLayout>
         <Button
-            android:layout_marginRight="10dp"
-            android:layout_gravity="right"
+            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="next"
