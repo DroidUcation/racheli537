@@ -14,6 +14,7 @@ import android.net.Uri;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import entity.entries.AmpEntry;
 import entity.entries.DatabaseContract;
 import entity.entries.SpeakerEntry;
 
@@ -45,7 +46,7 @@ public class AudioContentProvider extends ContentProvider {
     static {
         uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
         uriMatcher.addURI(content, SpeakerEntry.TBL_SPEAKERS, speakersCode);
-        uriMatcher.addURI(content, "amplifier", ampCode);
+        uriMatcher.addURI(content, AmpEntry.TBL_AMP, ampCode);
         uriMatcher.addURI(content, DatabaseContract.PATH_SPEAKER_FILTER, speakersFilterCode);
     }
 
@@ -85,7 +86,9 @@ public class AudioContentProvider extends ContentProvider {
                 sqLiteQueryBuilder.setTables(SpeakerEntry.TBL_SPEAKERS);
                 selection = SpeakerEntry.PLENUM + " = 'N' AND " + SpeakerEntry.INSTALLATION + " = ? AND " + SpeakerEntry.INCHES + " = ?" ;//SpeakerEntry.INCHES + " = ?" ;//
                 break;
-//            case ampCode:
+            case ampCode:
+                sqLiteQueryBuilder.setTables(AmpEntry.TBL_AMP);
+                break;
 //                sqLiteQueryBuilder.setTables(StoreEntry.STORE_TBL);
 //                _id = ContentUris.parseId(uri);
 //                selection = StoreEntry._ID + " = ?";
@@ -183,21 +186,8 @@ public class AudioContentProvider extends ContentProvider {
             case speakersCode:
                 tableName = SpeakerEntry.TBL_SPEAKERS;
                 break;
-//            case CARD_TYPE:
-//            case CARD_TYPE_ID:
-//                tableName = CardTypeEntry.CARD_TYPE_TBL;
-//                break;
-//            case STORE_CARD_TYPE:
-//                tableName = StoreCardTypeEntry.STORE_CARD_TYPE_TBL;
-//                break;
-//            case USER:
-//            case USER_ID:
-//                tableName = UserEntry.USER_TBL;
-//                break;
-//            case CARD:
-//            case CARD_ID:
-//                tableName = CardEntry.CARD_TBL;
-//                break;
+            case ampCode:
+                tableName = AmpEntry.TBL_AMP;
             default:
                 throw new UnsupportedOperationException("Unknown uri: " + uri);
         }

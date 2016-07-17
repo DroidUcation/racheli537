@@ -7,6 +7,8 @@ import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
+import entity.entries.AmpEntry;
 import entity.entries.SpeakerEntry;
 
 /**
@@ -32,14 +34,12 @@ public class DbHelperAudio extends SQLiteOpenHelper {
         super.onOpen(db);
         Log.d("a", "in on open SQLiteOpenHelper");
         //remove
-        //onUpgrade(db, 1, 2);
+        onUpgrade(db, 1, 2);
         onCreate(db);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-//        String select = "SELECT * FROM sqlite_master WHERE name ='" + SpeakerEntry.TBL_SPEAKERS + "' and type='table'; ";
-//        Cursor c = db.rawQuery(select, null);
         String CREATE_SPEAKERS_TABLE =
                 "CREATE TABLE IF NOT EXISTS " + SpeakerEntry.TBL_SPEAKERS + "("
                         //+ SpeakerEntry.ID + " INTEGER,"
@@ -54,18 +54,30 @@ public class DbHelperAudio extends SQLiteOpenHelper {
                         + SpeakerEntry.PORT_NUMBER + " TEXT"
                         + ")";
 
-//        String CREATE_AMP_TABLE = "CREATE TABLE " + TBL_AMP + "("
-//                + AMP_ID + " INTEGER," + AMP_NAME + " TEXT,"
-//                + AMP_PLENUM + " TEXT" + ")";
+        String CREATE_AMP_TABLE =
+                "CREATE TABLE IF NOT EXISTS " + AmpEntry.TBL_AMP + "("
+                //+ SpeakerEntry.ID + " INTEGER,"
+                + AmpEntry.ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + AmpEntry.NAME + " TEXT,"
+                + AmpEntry.POWER + " TEXT,"
+                + AmpEntry.CONTROL + " TEXT,"
+                + AmpEntry.MAX_SPEAKERS + " INTEGER,"
+                + AmpEntry.INPUT + " INTEGER,"
+                + AmpEntry.SPECIAL + " TEXT,"
+                + AmpEntry.DESCRIPTION + " TEXT,"
+                + AmpEntry.PORT_NUMBER + " TEXT"
+                + ")";
+
         db.execSQL(CREATE_SPEAKERS_TABLE);
-        //db.execSQL(CREATE_AMP_TABLE);
+        db.execSQL(CREATE_AMP_TABLE);
 
         // init data
         if (getCountRowsTable(db, SpeakerEntry.TBL_SPEAKERS) <= 0)
             insertSpeakersData(db);
-//            insertAmplifiersData(db);
-//        long intCnt = getCountRowsTable(db, SpeakerEntry.TBL_SPEAKERS);
-
+        if (getCountRowsTable(db, AmpEntry.TBL_AMP) <= 0)
+            insertAmpData(db);
+        long intCnt = getCountRowsTable(db, AmpEntry.TBL_AMP);
+        //intCnt = getCountRowsTable(db, SpeakerEntry.TBL_SPEAKERS);
     }
 
     private long getCountRowsTable(SQLiteDatabase db, String tblName) {
@@ -79,7 +91,7 @@ public class DbHelperAudio extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Drop older table if existed
         db.execSQL("DROP TABLE IF EXISTS " + SpeakerEntry.TBL_SPEAKERS);
-        //db.execSQL("DROP TABLE IF EXISTS " + TBL_AMP);
+        db.execSQL("DROP TABLE IF EXISTS " + AmpEntry.TBL_AMP);
         // Creating tables again
         //onCreate(db);
     }
@@ -372,183 +384,57 @@ public class DbHelperAudio extends SQLiteOpenHelper {
         // insert row
         db.insert(SpeakerEntry.TBL_SPEAKERS, null, values);
     }
+
+    private void insertAmpData(SQLiteDatabase db) {
+        ContentValues values = new ContentValues();
+        values.put(AmpEntry.ID, 1493);
+        values.put(AmpEntry.NAME, "900N");
+        values.put(AmpEntry.POWER, "2*10");
+        values.put(AmpEntry.CONTROL, "N");
+        values.put(AmpEntry.MAX_SPEAKERS, 8);
+        values.put(AmpEntry.INPUT, 2);
+        values.put(AmpEntry.SPECIAL, "");
+        values.put(AmpEntry.DESCRIPTION, "Stereo Audio Power Amplifier (8.4 Watts per Channel)");
+        values.put(AmpEntry.PORT_NUMBER, "90-7015409X");
+        // insert row
+        db.insert(AmpEntry.TBL_AMP, null, values);
+
+        values.clear();
+        values.put(AmpEntry.ID, 1655);
+        values.put(AmpEntry.NAME, "900xl");
+        values.put(AmpEntry.POWER, "2*10");
+        values.put(AmpEntry.CONTROL, "Y");
+        values.put(AmpEntry.MAX_SPEAKERS, 8);
+        values.put(AmpEntry.INPUT, 2);
+        values.put(AmpEntry.SPECIAL, "");
+        values.put(AmpEntry.DESCRIPTION, "Stereo Audio Power Amplifier (10 Watts per Channel)");
+        values.put(AmpEntry.PORT_NUMBER, "90-7622090");
+        // insert row
+        db.insert(AmpEntry.TBL_AMP, null, values);
+
+        values.clear();
+        values.put(AmpEntry.ID, 50);
+        values.put(AmpEntry.NAME, "903");
+        values.put(AmpEntry.POWER, "2*10");
+        values.put(AmpEntry.CONTROL, "N");
+        values.put(AmpEntry.MAX_SPEAKERS, 8);
+        values.put(AmpEntry.INPUT, 4);
+        values.put(AmpEntry.SPECIAL, "switcher");
+        values.put(AmpEntry.DESCRIPTION, "4x1 Personal Stereo Audio Amplifier & Switcher (10 Watts per Channel)");
+        values.put(AmpEntry.PORT_NUMBER, "90-090390");
+        // insert row
+        db.insert(AmpEntry.TBL_AMP, null, values);
+
+//        ID	Name 	Power	Control	Max speakers	Input#
+//        1493	900N	2*10	n	8	2
+//        1655	900xl	2*10	y	8	2
+//        1492	907	2*40	n	8	1
+//        1686	908	2*40	y	8	2
+//        2841	914	2*100	n	8	1
+//        2647	905xl	2*110	y	8	2
+//        50	903	2*10	n	8	4
+//        2399	907xl	2*40	n	8	2
+//        2842	920	1*200	n	~	4
+
+    }
 }
-
-//SQLiteOpenHelper mali
-/**
- //     * Created by user on 31/05/2016.
- //     */
-//    public class GCDatabaseHelper extends SQLiteOpenHelper {
-//
-//        public static final String DATABASE_NAME = "giftCard.db";
-//        public static final int DATABASE_VERSION = 1;
-//
-//        /**
-//         * Sql create tables
-//         */
-//        private static final String SQL_CREATE_STORE_TBL = "CREATE TABLE " + StoreEntry.STORE_TBL + " ( " +
-//                StoreEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-//                StoreEntry.NAME + " TEXT," +
-//                StoreEntry.IS_CHAIN_STORE + " SMALLINT )";
-//
-//        private static final String SQL_CREATE_CARD_TYPE_TBL = "CREATE TABLE " + CardTypeEntry.CARD_TYPE_TBL + " ( " +
-//                CardTypeEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-//                CardTypeEntry.NAME + " TEXT," +
-//                CardTypeEntry.IMAGE + " INTEGER," +
-//                CardTypeEntry.FOR_SPECIFIC_STORE + " SMALLINT )";
-//
-//        private static final String SQL_CREATE_STORE_CARD_TYPE_TBL = "CREATE TABLE " + StoreCardTypeEntry.STORE_CARD_TYPE_TBL + " ( " +
-//                StoreCardTypeEntry.STORE_ID + " INTEGER , " +
-//                StoreCardTypeEntry.CARD_TYPE_ID + " INTEGER )";
-//
-//        private static final String SQL_CREATE_USER_TBL = "CREATE TABLE " + UserEntry.USER_TBL + " ( " +
-//                UserEntry._ID + " INTEGER , " +
-//                UserEntry.FIRST_NAME + " TEXT , " +
-//                UserEntry.LAST_NAME + " TEXT , " +
-//                UserEntry.EMAIL + " TEXT , " +
-//                UserEntry.PASSWORD + " TEXT )";
-//
-//        private static final String SQL_CREATE_CARD_TBL = "CREATE TABLE " + CardEntry.CARD_TBL + " ( " +
-//                CardEntry._ID + " INTEGER , " +
-//                CardEntry.CARD_TYPE_ID + " INTEGER , " +
-//                CardEntry.IS_FOR_UNIQUE_STORE + " SMALLINT , " +
-//                CardEntry.UNIQUE_STORE_NAME + " TEXT , " +
-//                CardEntry.BALANCE + " DOUBLE , " +//TODO: check type
-//                CardEntry.EXPIRATION_DATE + " DATETIME , " +
-//                CardEntry.USER_ID + " INTEGER )";
-//
-//        /**
-//         * Sql drop tables
-//         */
-//        private static final String SQL_DROP_STORE_TABLE =
-//                "DROP TABLE IF EXISTS " + StoreEntry.STORE_TBL;
-//
-//        private static final String SQL_DROP_CARD_TYPE_TABLE =
-//                "DROP TABLE IF EXISTS " + CardTypeEntry.CARD_TYPE_TBL;
-//
-//        private static final String SQL_DROP_STORE_CARD_TYPE_TABLE =
-//                "DROP TABLE IF EXISTS " + StoreCardTypeEntry.STORE_CARD_TYPE_TBL;
-//
-//        private static final String SQL_DROP_USER_TABLE =
-//                "DROP TABLE IF EXISTS " + UserEntry.USER_TBL;
-//
-//        private static final String SQL_DROP_CARD_TABLE =
-//                "DROP TABLE IF EXISTS " + CardEntry.CARD_TBL;
-//
-//        public GCDatabaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-//            super(context, name, factory, version);
-//        }
-//
-//        /**
-//         * Constructor that init fixed db name and version
-//         *
-//         * @param context
-//         */
-//        public GCDatabaseHelper(Context context) {
-//            super(context, DATABASE_NAME, null, DATABASE_VERSION);
-//            Log.d("**********in db helper", "********");
-//        }
-//
-//        @Override
-//        public void onCreate(SQLiteDatabase db) {
-//            // create tables
-//            db.execSQL(SQL_CREATE_STORE_TBL);
-//            db.execSQL(SQL_CREATE_CARD_TYPE_TBL);
-//            db.execSQL(SQL_CREATE_STORE_CARD_TYPE_TBL);
-//            db.execSQL(SQL_CREATE_USER_TBL);
-//            db.execSQL(SQL_CREATE_CARD_TBL);
-//            // init data
-//            insertStoresData(db);
-//            insertCardTypesData(db);
-//            insertStoresCardTypesData(db);
-//            insertUsersData(db);
-//            insertCardsData(db);
-//        }
-//
-//        @Override
-//        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-//            db.execSQL(SQL_DROP_STORE_TABLE);
-//            db.execSQL(SQL_DROP_CARD_TYPE_TABLE);
-//            db.execSQL(SQL_DROP_STORE_CARD_TYPE_TABLE);
-//            db.execSQL(SQL_DROP_USER_TABLE);
-//            db.execSQL(SQL_DROP_CARD_TABLE);
-//            onCreate(db);
-//        }
-//
-//        private void insertStoresData(SQLiteDatabase db) {
-//            ContentValues values = new ContentValues();
-//            values.put(StoreEntry.NAME, "ZARA");
-//            values.put(StoreEntry.IS_CHAIN_STORE, 1);
-//            // insert row
-//            db.insert(StoreEntry.STORE_TBL, null, values);
-//
-//            values.clear();
-//            values.put(StoreEntry.NAME, "FOX");
-//            values.put(StoreEntry.IS_CHAIN_STORE, 1);
-//            // insert row
-//            db.insert(StoreEntry.STORE_TBL, null, values);
-//        }
-//
-//        private void insertCardTypesData(SQLiteDatabase db) {
-//            ContentValues values = new ContentValues();
-//            values.put(CardTypeEntry.NAME, "Dream Card");
-//            values.put(CardTypeEntry.FOR_SPECIFIC_STORE, 0);
-//            values.put(CardTypeEntry.IMAGE, R.drawable.dream_card);
-//            db.insert(CardTypeEntry.CARD_TYPE_TBL, null, values);
-//
-//            // another row
-//            values.clear();
-//            values.put(CardTypeEntry.NAME, "Gift Card- Isracard");
-//            values.put(CardTypeEntry.FOR_SPECIFIC_STORE, 1);
-//            values.put(CardTypeEntry.FOR_SPECIFIC_STORE, 1);
-//            values.put(CardTypeEntry.IMAGE, R.drawable.giftcard1);
-//            db.insert(CardTypeEntry.CARD_TYPE_TBL, null, values);
-//
-//            // another row
-//            values.clear();
-//            values.put(CardTypeEntry.NAME, "Tav Hazav");
-//            values.put(CardTypeEntry.FOR_SPECIFIC_STORE, 1);
-//            values.put(CardTypeEntry.IMAGE, R.drawable.tavhazav);
-//            db.insert(CardTypeEntry.CARD_TYPE_TBL, null, values);
-//        }
-//
-//        private void insertStoresCardTypesData(SQLiteDatabase db) {
-//            ContentValues values = new ContentValues();
-//            values.put(StoreCardTypeEntry.STORE_ID, 1);
-//            values.put(StoreCardTypeEntry.CARD_TYPE_ID, 1);
-//            // insert row
-//            db.insert(StoreCardTypeEntry.STORE_CARD_TYPE_TBL, null, values);
-//
-//            values.clear();
-//            values.put(StoreCardTypeEntry.STORE_ID, 2);
-//            values.put(StoreCardTypeEntry.CARD_TYPE_ID, 3);
-//            // insert row
-//            db.insert(StoreCardTypeEntry.STORE_CARD_TYPE_TBL, null, values);
-//        }
-//
-//        private void insertUsersData(SQLiteDatabase db) {
-//            ContentValues values = new ContentValues();
-//            values.put(UserEntry.FIRST_NAME, "user");
-//            values.put(UserEntry.LAST_NAME, "test");
-//            values.put(UserEntry.EMAIL, "usertest@gmail.com");
-//            values.put(UserEntry.PASSWORD, "Aa123456");
-//
-//            // insert row
-//            db.insert(UserEntry.USER_TBL, null, values);
-//        }
-//
-//        private void insertCardsData(SQLiteDatabase db) {
-//            ContentValues values = new ContentValues();
-//            values.put(CardEntry.CARD_TYPE_ID, 1);
-//            values.put(CardEntry.IS_FOR_UNIQUE_STORE, 1);
-//            values.put(CardEntry.UNIQUE_STORE_NAME, "ZERZ");
-//            values.put(CardEntry.BALANCE, 320);
-//            values.put(CardEntry.EXPIRATION_DATE, DateUtil.DATE_FORMAT_YYYYMMDDHHMMSS.format(new Date()));
-//            values.put(CardEntry.USER_ID, 1);
-//
-//            // insert row
-//            db.insert(CardEntry.CARD_TBL, null, values);
-//        }
-//    }
-
-

@@ -104,7 +104,7 @@ public class ShareFragment extends Fragment {
             Uri uri = DatabaseContract.BASE_CONTENT_URI.buildUpon().appendPath(DatabaseContract.PATH_SPEAKER_FILTER).build();
             cursor = getActivity().getContentResolver().query(SpeakerEntry.CONTENT_URI, projection, selection, strArgs, null);
             AudioCursorAdapter customAdapter = new AudioCursorAdapter(getActivity(), cursor);
-            ListView listView = (ListView) mView.findViewById(R.id.list_data);
+            ListView listView = (ListView) mView.findViewById(R.id.list_speaker);
             listView.setAdapter(customAdapter);
             //cursor.close();
         }

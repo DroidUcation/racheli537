@@ -7,7 +7,7 @@ import android.net.Uri;
  */
 public class DatabaseContract {
 //    public static final String PATH_SPEAKER = "TBL_SPEAKERS";
-    //public static final String PATH_Amplifier = "amplifier";
+    //public static final String PATH_AMPLIFIER = "TBL_AMP";
     public static final String PATH_SPEAKER_FILTER = "SPEAKERS_FILTER";
 
 //    public static final String PATH_CARD_JOIN_CARD_TYPE_STORE = "cardJoinCardTypeJoinStore";
