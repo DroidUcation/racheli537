@@ -420,7 +420,7 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
     private void getSpeakersData() {
         try {
             String strFilterInches = "";
-            if (paramsData.Installation() == SpeakerEntry.INSTALLATION_CEILING || paramsData.Installation() == SpeakerEntry.INSTALLATION_CEILING_TILE) {
+            if (paramsData.Installation().equals(SpeakerEntry.INSTALLATION_CEILING ) || paramsData.Installation().equals(SpeakerEntry.INSTALLATION_CEILING_TILE )){//SpeakerEntry.INSTALLATION_CEILING_TILE) {
                 if (paramsData.High() <= 3)
                     strFilterInches = "4";
                 else if (paramsData.High() > 3 && paramsData.High() <= 5)
@@ -636,6 +636,12 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
                 pager.setCurrentItem(3,true);
                 break;
             case R.id.next1:
+                TextView txtSize = (TextView) findViewById(R.id.height_btn) ;
+                paramsData.High(Integer.parseInt(txtSize.getText().toString()));
+                txtSize = (TextView) findViewById(R.id.length_btn) ;
+                paramsData.Length(Integer.parseInt(txtSize.getText().toString()));
+                txtSize = (TextView) findViewById(R.id.width_btn) ;
+                paramsData.Width(Integer.parseInt(txtSize.getText().toString()));
                 pager.setCurrentItem(4, true);
                 break;
             case R.id.ins_1://If purpose goto room size
@@ -666,15 +672,15 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
             case R.id.amp_2:
             case R.id.amp_3:
                 //ft.replace(R.id.fragment_placeholder, new RoomSizeFragment());
-                //TextView txt;
+                TextView txtAmp;
                 if (viewId == R.id.amp_1)
-                    txt = (TextView) findViewById(R.id.amp_txt1);
+                    txtAmp = (TextView) findViewById(R.id.amp_txt1);
                 else if (viewId == R.id.amp_2)
-                    txt = (TextView) findViewById(R.id.amp_txt2);
+                    txtAmp = (TextView) findViewById(R.id.amp_txt2);
                 else
-                    txt = (TextView) findViewById(R.id.amp_txt3);
+                    txtAmp = (TextView) findViewById(R.id.amp_txt3);
 
-                paramsData.Amplifier(txt.getText().toString());
+                paramsData.Amplifier(txtAmp.getText().toString());
                 //getDataShare();
                 pager.setCurrentItem(7, true);
                 break;
