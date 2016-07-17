@@ -228,7 +228,6 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
         });
     }
 
-
     private void setupViewPager(ViewPager viewPager) {
         MyPagerAdapter adapter = new MyPagerAdapter(getSupportFragmentManager());
 
@@ -553,7 +552,7 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
         }
         String numText = currentText.getText().toString();
         int num = Integer.parseInt(numText);
-        num += 10;
+        num += 1;
         currentText.setText(Integer.toString(num));
     }
 
@@ -577,7 +576,7 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
         String numText = currentText.getText().toString();
         int num = Integer.parseInt(numText);
         if(num > 10)
-            num -= 10;
+            num -= 1;
         currentText.setText(Integer.toString(num));
     }
 }
