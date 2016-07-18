@@ -10,31 +10,56 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
     <TextView
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/share_ttl"
         style="@style/TitleFont"
         />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_centerVertical="true"
-        android:text="@string/share_txt"
-        />
 
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:orientation="vertical">
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:background="#B3B3B3"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:id="@+id/imageView"
-        android:background="@drawable/in_wall_com"
-        android:layout_gravity="top" />
+        android:src="@mipmap/is"
+        />
+    <RelativeLayout
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="210dp"
+        android:layout_marginLeft="330dp"
+android:background="@color/topBottomBar"
+        >
+    <Button
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:background="@mipmap/share"
+    /></RelativeLayout>
 
+
+    </RelativeLayout>
     <ListView android:id="@+id/list_data"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_weight="1"/>
+        <ListView android:id="@+id/list_speaker"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_weight="1"/>
+        <ListView android:id="@+id/list_amp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_weight="1"/>
     </LinearLayout>
 
 

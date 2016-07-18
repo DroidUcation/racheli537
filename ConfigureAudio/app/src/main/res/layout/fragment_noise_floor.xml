@@ -12,8 +12,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/noise_floor_ttl"
-            android:layout_row="0"
-            android:layout_columnSpan="2"
             style="@style/TitleFont"
             android:paddingTop="20dp"
             android:paddingLeft="20dp"/>
@@ -23,8 +21,7 @@
             style="@style/RectLayout"
             android:layout_marginLeft="60dp"
             android:layout_gravity="left"
-            android:elevation="4dp"
-            android:onClick="gotoNextFragment">
+            android:elevation="4dp">
 
             <ImageButton
                 android:id="@+id/noise_db45"
@@ -42,12 +39,12 @@
                 android:text="@string/noise_1" />
         </RelativeLayout>
         <RelativeLayout
+
             android:layout_marginTop="100dp"
             android:layout_marginLeft="210dp"
             style="@style/RectLayout"
             android:layout_gravity="right"
             android:elevation="4dp"
-            android:onClick="gotoNextFragment"
             >
 
             <ImageButton
@@ -68,8 +65,7 @@
             android:layout_marginTop="230dp"
             style="@style/RectLayout"
             android:layout_marginLeft="60dp"
-            android:elevation="4dp"
-            android:onClick="gotoNextFragment">
+            android:elevation="4dp">
 
             <ImageButton
                 android:id="@+id/noise_db60"
@@ -89,8 +85,7 @@
             android:layout_marginTop="230dp"
             android:layout_marginLeft="210dp"
             style="@style/RectLayout"
-            android:elevation="4dp"
-            android:onClick="gotoNextFragment">
+            android:elevation="4dp">
 
             <ImageButton
                 android:id="@+id/noise_db65"
@@ -110,8 +105,7 @@
             android:layout_marginTop="360dp"
             android:layout_marginLeft="140dp"
             style="@style/RectLayout"
-            android:elevation="4dp"
-            android:onClick="gotoNextFragment">
+            android:elevation="4dp">
 
             <ImageButton
                 android:id="@+id/noise_db75"

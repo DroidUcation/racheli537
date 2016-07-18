@@ -57,7 +57,13 @@ public class RoomPurposeFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-
+    @Override
+    public void onStart() {
+        super.onStart();
+        Bundle args = getArguments();
+        if (args != null) {
+        }
+    }
     public RoomPurposeFragment() {
         // Required empty public constructor
     }

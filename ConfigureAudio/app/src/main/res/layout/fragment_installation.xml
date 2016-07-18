@@ -11,7 +11,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/purpose_ttl"
+            android:text="@string/installation_ttl"
             android:layout_row="0"
             android:layout_columnSpan="2"
             style="@style/TitleFont"
@@ -30,6 +30,7 @@
                 style="@style/RectImage"
                 android:onClick="gotoNextFragment"
                 android:src="@mipmap/cailling"
+                android:tag="Ceiling"
                 />
 
 
@@ -51,7 +52,8 @@
                 android:id="@+id/ins_2"
                 style="@style/RectImage"
                 android:onClick="gotoNextFragment"
-                android:src="@mipmap/tileceilling" />
+                android:src="@mipmap/tileceilling"
+                android:tag="Ceiling tile"/>
 
 
 
@@ -72,7 +74,9 @@
                 android:id="@+id/ins_3"
                 style="@style/RectImage"
                 android:onClick="gotoNextFragment"
-                android:src="@mipmap/onwall" />
+                android:src="@mipmap/onwall"
+                android:tag="On-wall"/>
+
 
 
 
@@ -92,7 +96,9 @@
                 android:id="@+id/ins_4"
                 style="@style/RectImage"
                 android:onClick="gotoNextFragment"
-                android:src="@mipmap/inwall" />
+                android:src="@mipmap/inwall"
+                android:tag="In-wall"/>
+
 
 
 
