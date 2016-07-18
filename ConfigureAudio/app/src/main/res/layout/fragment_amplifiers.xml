@@ -1,4 +1,4 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,119 +14,201 @@
             style="@style/TitleFont"
             android:paddingTop="20dp"
             android:paddingLeft="20dp"/>/>
-        <LinearLayout
-            android:layout_marginLeft="90dp"
+
+        <RelativeLayout
+            android:layout_marginTop="70dp"
+            android:layout_marginLeft="150dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minWidth="70dp"
-            android:layout_marginTop="90dp"
-            android:gravity="center"
-            android:orientation="vertical"
             >
-            <Button android:layout_height="@dimen/rect"
-                android:layout_width="wrap_content"
-                android:minWidth="90dp"
-                android:id="@+id/amp_1"
-                android:text="@string/noise_1"
-                android:onClick="gotoNextFragment"
-                android:gravity="bottom"
-                android:textColor="@color/topBottomBar"
-                android:background="@mipmap/ic_amplifire"
-                />
 
-            <TextView
+            <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                >
+
+                <Button android:layout_height="@dimen/rect"
+                    android:layout_width="@dimen/rect"
+                    android:minWidth="90dp"
+                    android:onClick="gotoNextFragment"
+                    android:gravity="bottom"
+                    android:textColor="@color/topBottomBar"
+                    android:id="@+id/amp_1"
+
+                    />
+
+                <TextView
+                    android:background="@color/topBottomBar"
+                    android:layout_marginTop="80dp"
+                    android:textColor="@android:color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="hjkhjk00"
+                    android:textSize="12dip"
+                    android:elevation="100dp"
+                    android:id="@+id/txt_btn_amp1"
+                    />
+
+            </FrameLayout>
+
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="180dp"
+            android:layout_marginLeft="30dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+            <TextView
+
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="aaaaaaa"
                 android:id="@+id/amp_txt1"
-                style="@style/TitleFont"
-                android:text="a"
                 />
-
             <TextView
-                android:layout_width="220dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="aa"
-                android:id="@+id/amp_txt11"
-                android:gravity="center"
-                />
-
+                android:text="ddddddddd"
+                android:id="@+id/amp_txt11"/>
             <TextView
-                android:layout_width="220dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="aaa"
-                android:id="@+id/amp_txt111"
-                android:gravity="center"
-                />
+                android:text="ddddddddd"
+                android:id="@+id/amp_txt111"/>
         </LinearLayout>
         <RelativeLayout
-            android:layout_marginTop="270dp"
+            android:layout_marginTop="250dp"
+            android:layout_marginLeft="150dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="130dp">
-            <Button android:layout_height="@dimen/rect"
-                android:layout_width="@dimen/rect"
-                android:text="@string/noise_2"
-                android:id="@+id/amp_2"
-                android:onClick="gotoNextFragment"
-                android:gravity="bottom"
-                android:layout_marginLeft="20dp"
-                android:background="@mipmap/ic_amplifire"
-                />
+            >
 
-            <TextView
+            <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="b"
+                >
+
+                <Button android:layout_height="@dimen/rect"
+                    android:layout_width="@dimen/rect"
+                    android:minWidth="90dp"
+                    android:onClick="gotoNextFragment"
+                    android:gravity="bottom"
+                    android:textColor="@color/topBottomBar"
+                    android:id="@+id/amp_2"
+
+                    />
+
+                <TextView
+                    android:background="@color/topBottomBar"
+                    android:layout_marginTop="80dp"
+                    android:textColor="@android:color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="hjkhjk00"
+                    android:textSize="12dip"
+                    android:elevation="100dp"
+                    android:id="@+id/txt_btn_amp2"
+                    />
+
+            </FrameLayout>
+
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="360dp"
+            android:layout_marginLeft="30dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+            <TextView
+
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="aaaaaaa"
                 android:id="@+id/amp_txt2"
-                style="@style/TitleFont"
-                android:gravity="center"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="bb"
-                android:id="@+id/amp_txt22"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="bbb"
-                android:id="@+id/amp_txt222"
-                />
-        </RelativeLayout>
+                android:text="ddddddddd"
+                android:id="@+id/amp_txt22"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ddddddddd"
+                android:id="@+id/amp_txt222"/>
+        </LinearLayout>
         <RelativeLayout
-            android:layout_marginTop="400dp"
+            android:layout_marginTop="430dp"
+            android:layout_marginLeft="150dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="130dp">
-            <Button android:layout_height="@dimen/rect"
-                android:layout_width="@dimen/rect"
-                android:text="@string/noise_2"
-                android:id="@+id/amp_3"
-                android:onClick="gotoNextFragment"
-                android:gravity="bottom"
-                android:background="@mipmap/ic_amplifire"
-                android:layout_marginLeft="20dp"
-                />
+            >
 
-            <TextView
+            <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="c"
-                android:id="@+id/amp_txt3"
-                style="@style/TitleFont"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="cc"
-                android:id="@+id/amp_txt33"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ccc"
-                android:id="@+id/amp_txt333"
-                />
+                >
+
+                <Button android:layout_height="@dimen/rect"
+                    android:layout_width="@dimen/rect"
+                    android:minWidth="90dp"
+                    android:onClick="gotoNextFragment"
+                    android:gravity="bottom"
+                    android:textColor="@color/topBottomBar"
+                    android:id="@+id/amp_3"
+
+                    />
+
+                <TextView
+                    android:background="@color/topBottomBar"
+                    android:layout_marginTop="80dp"
+                    android:textColor="@android:color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="hjkhjk00"
+                    android:textSize="12dip"
+                    android:elevation="100dp"
+                    android:id="@+id/txt_btn_amp3"
+                    />
+
+            </FrameLayout>
+
         </RelativeLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="540dp"
+            android:layout_marginLeft="30dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+            <TextView
+
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="aaaaaaa"
+                android:id="@+id/amp_txt3"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ddddddddd"
+                android:id="@+id/amp_txt33"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ddddddddd"
+                android:id="@+id/amp_txt333"/>
+        </LinearLayout>
     </RelativeLayout>
-</FrameLayout>
+</ScrollView>

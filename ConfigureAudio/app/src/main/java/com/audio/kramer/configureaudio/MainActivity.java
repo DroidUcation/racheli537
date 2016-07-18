@@ -317,24 +317,6 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
 
     private void getAmpData() {
         try {
-//            String strFilterInches = "";
-//            if (paramsData.Installation() == SpeakerEntry.INSTALLATION_CEILING || paramsData.Installation() == SpeakerEntry.INSTALLATION_CEILING_TILE) {
-//                if (paramsData.High() <= 3)
-//                    strFilterInches = "4";
-//                else if (paramsData.High() > 3 && paramsData.High() <= 5)
-//                    strFilterInches = "6.5";
-//                else if (paramsData.High() > 5)// && paramsData.High() <= 8)
-//                    strFilterInches = "8";
-//            } else {
-//                if (paramsData.Width() <= 3)
-//                    strFilterInches = "4";
-//                else if (paramsData.Width() > 3 && paramsData.Width() <= 5)
-//                    strFilterInches = "5.25";
-//                else if (paramsData.Width() > 5)
-//                    strFilterInches = "6.5";
-//            }
-
-            //String[] strArgs = {paramsData.Installation(), strFilterInches};
             Uri uri = DatabaseContract.BASE_CONTENT_URI.buildUpon().appendPath(AmpEntry.TBL_AMP).build();
             Cursor cursor = getContentResolver().query(uri, null, null, null, null); ////SPEAKERS_CONTENT_URI
 
@@ -355,8 +337,11 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
                         txt111.setText(cursor.getString(cursor.getColumnIndexOrThrow(AmpEntry.INPUT)));
                         txt111.setVisibility(View.VISIBLE);
                         Button btn1 = (Button) findViewById(R.id.amp_1);
-                        btn1.setText(getTextBtn(cursor.getString(cursor.getColumnIndexOrThrow(AmpEntry.CONTROL)), cursor.getString(cursor.getColumnIndexOrThrow(AmpEntry.SPECIAL))));
+                        //btn1.setText(getTextBtn(cursor.getString(cursor.getColumnIndexOrThrow(AmpEntry.CONTROL)), cursor.getString(cursor.getColumnIndexOrThrow(AmpEntry.SPECIAL))));
                         btn1.setVisibility(View.VISIBLE);
+                        txt11 = (TextView) findViewById(R.id.txt_btn_amp1);
+                        txt11.setText(getTextBtn(cursor.getString(cursor.getColumnIndexOrThrow(AmpEntry.CONTROL)), cursor.getString(cursor.getColumnIndexOrThrow(AmpEntry.SPECIAL))));
+                        txt11.setVisibility(View.VISIBLE);
                     } else if (flag == 2) {
                     TextView txt1 = (TextView) findViewById(R.id.amp_txt2);
                     txt1.setText(cursor.getString(cursor.getColumnIndexOrThrow(AmpEntry.NAME)));
@@ -368,8 +353,11 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
                     txt111.setText(cursor.getString(cursor.getColumnIndexOrThrow(AmpEntry.INPUT)));
                     txt111.setVisibility(View.VISIBLE);
                     Button btn2 = (Button) findViewById(R.id.amp_2);
-                    btn2.setText(getTextBtn(cursor.getString(cursor.getColumnIndexOrThrow(AmpEntry.CONTROL)), cursor.getString(cursor.getColumnIndexOrThrow(AmpEntry.SPECIAL))));
+                    //btn2.setText(getTextBtn(cursor.getString(cursor.getColumnIndexOrThrow(AmpEntry.CONTROL)), cursor.getString(cursor.getColumnIndexOrThrow(AmpEntry.SPECIAL))));
                     btn2.setVisibility(View.VISIBLE);
+                        txt11 = (TextView) findViewById(R.id.txt_btn_amp2);
+                        txt11.setText(getTextBtn(cursor.getString(cursor.getColumnIndexOrThrow(AmpEntry.CONTROL)), cursor.getString(cursor.getColumnIndexOrThrow(AmpEntry.SPECIAL))));
+                        txt11.setVisibility(View.VISIBLE);
                 } else if (flag == 3) {
                     TextView txt1 = (TextView) findViewById(R.id.amp_txt3);
                     txt1.setText(cursor.getString(cursor.getColumnIndexOrThrow(AmpEntry.NAME)));
@@ -381,8 +369,11 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
                     txt111.setText(cursor.getString(cursor.getColumnIndexOrThrow(AmpEntry.INPUT)));
                     txt111.setVisibility(View.VISIBLE);
                     Button btn2 = (Button) findViewById(R.id.amp_3);
-                    btn2.setText(getTextBtn(cursor.getString(cursor.getColumnIndexOrThrow(AmpEntry.CONTROL)), cursor.getString(cursor.getColumnIndexOrThrow(AmpEntry.SPECIAL))));
+                    //btn2.setText(getTextBtn(cursor.getString(cursor.getColumnIndexOrThrow(AmpEntry.CONTROL)), cursor.getString(cursor.getColumnIndexOrThrow(AmpEntry.SPECIAL))));
                     btn2.setVisibility(View.VISIBLE);
+                        txt11 = (TextView) findViewById(R.id.txt_btn_amp3);
+                        txt11.setText(getTextBtn(cursor.getString(cursor.getColumnIndexOrThrow(AmpEntry.CONTROL)), cursor.getString(cursor.getColumnIndexOrThrow(AmpEntry.SPECIAL))));
+                        txt11.setVisibility(View.VISIBLE);
                     }
                     cursor.moveToNext();
                 }
