@@ -34,7 +34,7 @@
                     android:gravity="bottom"
                     android:textColor="@color/topBottomBar"
                     android:id="@+id/amp_1"
-
+                    android:background="@mipmap/ic_amplifire"
                     />
 
                 <TextView
@@ -99,7 +99,7 @@
                     android:gravity="bottom"
                     android:textColor="@color/topBottomBar"
                     android:id="@+id/amp_2"
-
+                    android:background="@mipmap/ic_amplifire"
                     />
 
                 <TextView
@@ -164,7 +164,7 @@
                     android:gravity="bottom"
                     android:textColor="@color/topBottomBar"
                     android:id="@+id/amp_3"
-
+                    android:background="@mipmap/ic_amplifire"
                     />
 
                 <TextView
