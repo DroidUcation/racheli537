@@ -3,6 +3,7 @@ package com.audio.kramer.configureaudio;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.media.Image;
@@ -715,6 +716,15 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
         // Complete the changes added above
 //        ft.addToBackStack(null);
 //        ft.commit();
+    }
+
+    public void ShareBtnClick(View view)
+    {
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
+        sendIntent.setType("text/plain");
+        startActivity(sendIntent);
     }
 
     public void plusClicked(View view)
