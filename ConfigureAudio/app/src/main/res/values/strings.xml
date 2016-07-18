@@ -35,6 +35,8 @@
     <string name="install_2">Tile Ceiling</string>
     <string name="install_3">On-Wall</string>
     <string name="install_4">In-Wall</string>
+    <string name="share_ttl">hgfghfg</string>
+    <string name="share_txt">khghjgj</string>
 
 
     <string-array name="spinner_values">
