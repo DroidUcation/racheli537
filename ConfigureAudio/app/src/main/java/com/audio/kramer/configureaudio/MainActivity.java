@@ -207,6 +207,9 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
             @Override
             public void onPageSelected(int position) {
                 switch (position) {
+                    case 3:
+                        setDataSize();
+                        break;
                     case 5:
                         getSpeakersData();
                         break;
@@ -259,6 +262,23 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
         adapter.addFragment(amplifiersFragment, "7");//"Speakers");
         adapter.addFragment(shareFragment, "8");//"Share");
         viewPager.setAdapter(adapter);
+    }
+
+    private void setDataSize()
+    {
+        TextView txtSize;
+        if (paramsData.High() > 0) {
+            txtSize = (TextView) findViewById(R.id.height_btn) ;
+            txtSize.setText(String.valueOf(paramsData.High()));
+        }
+        if (paramsData.Length() > 0) {
+            txtSize = (TextView) findViewById(R.id.length_btn);
+            txtSize.setText(String.valueOf(paramsData.Length()));
+        }
+        if (paramsData.Width() > 0){
+            txtSize = (TextView) findViewById(R.id.width_btn);
+            txtSize.setText(String.valueOf(paramsData.Width()));
+        }
     }
 
     private void getDataShare() {
