@@ -1,4 +1,4 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,73 +14,126 @@
             style="@style/TitleFont"
             android:paddingTop="20dp"
             android:paddingLeft="20dp"/>/>
-        <LinearLayout
-            android:layout_marginLeft="90dp"
+
+        <RelativeLayout
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="150dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minWidth="70dp"
-            android:layout_marginTop="90dp"
-            android:gravity="center"
+            >
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+                <Button android:layout_height="@dimen/rect"
+                    android:layout_width="@dimen/rect"
+                    android:minWidth="90dp"
+                    android:onClick="gotoNextFragment"
+                    android:gravity="bottom"
+                    android:textColor="@color/topBottomBar"
+                    android:id="@+id/spk_1"
+
+                    />
+
+                <TextView
+                    android:background="@color/topBottomBar"
+                    android:layout_marginTop="80dp"
+                    android:textColor="@android:color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="hjkhjk00"
+                    android:textSize="12dip"
+                    android:elevation="100dp"
+                    android:id="@+id/txt_btn1"
+                    />
+
+            </FrameLayout>
+
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="210dp"
+            android:layout_marginLeft="100dp"
             android:orientation="vertical"
+            android:gravity="center"
             >
             <TextView
+
+                android:textStyle="bold"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/spk_txt1"
-                style="@style/TitleFont"
-                />
-
-            <Button android:layout_height="@dimen/rect"
-                android:layout_width="wrap_content"
-                android:minWidth="90dp"
-                android:id="@+id/spk_1"
-                android:text="@string/noise_1"
-                android:onClick="gotoNextFragment"
-                android:gravity="bottom"
-                android:textColor="@color/topBottomBar"
-
-                />
-
-            <TextView
-                android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:text="aaaaaaa"
-                android:id="@+id/spk_txt11"
-                android:gravity="center"
+                android:id="@+id/spk_txt1"
                 />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ddddddddd"
+                android:id="@+id/spk_txt11"/>
         </LinearLayout>
-        <LinearLayout
-            android:layout_marginLeft="90dp"
+        <RelativeLayout
+            android:layout_marginTop="300dp"
+            android:layout_marginLeft="150dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minWidth="70dp"
-            android:layout_marginTop="270dp"
-            android:gravity="center"
-            android:orientation="vertical">
-            <TextView
+            >
+
+            <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/spk_txt2"
-                style="@style/TitleFont"
-                android:layout_marginTop="2dp"
-                />
-            <Button android:layout_height="@dimen/rect"
-                android:layout_width="wrap_content"
-                android:minWidth="90dp"
-                android:id="@+id/spk_2"
-                android:paddingTop="27dp"
-                android:text="@string/noise_1"
-                android:onClick="gotoNextFragment"
-                android:gravity="bottom"
-                android:textColor="@color/topBottomBar"
-                />
+                >
+
+                <Button android:layout_height="@dimen/rect"
+                    android:layout_width="@dimen/rect"
+                    android:minWidth="90dp"
+                    android:onClick="gotoNextFragment"
+                    android:gravity="bottom"
+                    android:textColor="@color/topBottomBar"
+                    android:id="@+id/spk_2"
+
+                    />
+
+                <TextView
+                    android:background="@color/topBottomBar"
+                    android:layout_marginTop="80dp"
+                    android:textColor="@android:color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="hjkhjk00"
+                    android:textSize="12dip"
+                    android:elevation="100dp"
+                    android:id="@+id/txt_btn2"
+                    />
+
+            </FrameLayout>
+
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="420dp"
+            android:layout_marginLeft="100dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
             <TextView
-                android:layout_width="220dp"
+
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="aaaaaaa"
-                android:id="@+id/spk_txt22"
-                android:gravity="center"
+                android:id="@+id/spk_txt2"
                 />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ddddddddd"
+                android:id="@+id/spk_txt22"/>
         </LinearLayout>
     </RelativeLayout>
-</FrameLayout>
+</RelativeLayout>

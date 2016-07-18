@@ -475,12 +475,17 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
                         txt11.setText(cursor.getString(cursor.getColumnIndexOrThrow(SpeakerEntry.DESCRIPTION)));
                         txt11.setVisibility(View.VISIBLE);
                         Button btn1 = (Button) findViewById(R.id.spk_1);
-                        btn1.setText("Comercial");
+                        //btn1.setText("Comercial");
+                        txt11 = (TextView) findViewById(R.id.txt_btn1);
+                        txt11.setText("Comercial");
+                        txt11.setVisibility(View.VISIBLE);
                         btn1.setVisibility(View.VISIBLE);
                         switch (paramsData.Installation()) {
                             case SpeakerEntry.INSTALLATION_CEILING_TILE:
                                 btn1.setBackground(getResources().getDrawable(R.drawable.ceiling_tile_hp));
-                                btn1.setText("High Performance");
+                                //btn1.setText("High Performance");
+                                txt11 = (TextView) findViewById(R.id.txt_btn1);
+                                txt11.setText("High Performance");
                                 break;
                             case SpeakerEntry.INSTALLATION_CEILING:
                                 btn1.setBackground(getResources().getDrawable(R.drawable.ceiling_com));
@@ -502,7 +507,10 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
                         txt11.setText(cursor.getString(cursor.getColumnIndexOrThrow(SpeakerEntry.DESCRIPTION)));
                         txt11.setVisibility(View.VISIBLE);
                         Button btn2 = (Button) findViewById(R.id.spk_2);
-                        btn2.setText("High Performance");
+                        //btn2.setText("High Performance");
+                        txt11 = (TextView) findViewById(R.id.txt_btn2);
+                        txt11.setText("High Performance");
+                        txt11.setVisibility(View.VISIBLE);
                         btn2.setVisibility(View.VISIBLE);
                         switch (paramsData.Installation()) {
 //                        case SpeakerEntry.INSTALLATION_CEILING_TILE:
@@ -532,6 +540,8 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
                     txt2.setVisibility(View.GONE);
                     TextView txt22 = (TextView) findViewById(R.id.spk_txt22);
                     txt22.setVisibility(View.GONE);
+                    txt22 = (TextView) findViewById(R.id.txt_btn2);
+                    txt22.setVisibility(View.GONE);
                     //Toast.makeText(getActivity(),"Text!",Toast.LENGTH_SHORT).show();
                 }
                 cursor.close();
@@ -545,12 +555,16 @@ public class MainActivity extends AppCompatActivity implements StartFragment.OnF
                 txt11.setVisibility(View.GONE);
                 Button btn1 = (Button) findViewById(R.id.spk_1);
                 btn1.setVisibility(View.GONE);
+                txt11 = (TextView) findViewById(R.id.txt_btn1);
+                txt11.setVisibility(View.GONE);
                 Button btn2 = (Button) findViewById(R.id.spk_2);
                 btn2.setVisibility(View.GONE);
                 TextView txt2 = (TextView) findViewById(R.id.spk_txt2);
                 txt2.setVisibility(View.GONE);
                 txt2.setText("");
                 TextView txt22 = (TextView) findViewById(R.id.spk_txt22);
+                txt22.setVisibility(View.GONE);
+                txt22 = (TextView) findViewById(R.id.txt_btn2);
                 txt22.setVisibility(View.GONE);
 
             }
